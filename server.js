@@ -19,4 +19,11 @@ const userSchema = new mongoose.Schema({
     password: String,
 });
 
-const User = mongoose.model('User', userSchema);
+const User = mongoose.model('User', userSchema, 'Users');
+
+app.post('/api/Users', async (req, res) => {
+    const user = new User(req.body);
+    await user.save();
+    res.status(201).send(newUser);
+});
+
