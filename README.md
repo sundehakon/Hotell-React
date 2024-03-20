@@ -14,8 +14,8 @@ This project is a hotel webpage created using React. It aims to provide users wi
 
 To run this project locally, follow these steps:
 
-1. Clone the repository: `$ git clone https://github.com/your-username/hotel-webpage.git`
-2. Navigate to the project directory: `$ cd hotel-webpage`
+1. Clone the repository: `$ git clone https://github.com/your-username/hotell-react.git`
+2. Navigate to the project directory: `$ cd hotell-react`
 3. Install the dependencies: `$ npm install`
 4. Start the development server: `$ npm start`
 
