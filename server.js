@@ -25,5 +25,5 @@ app.post('/api/Users', async (req, res) => {
     res.status(201).send(newUser);
 });
 
-app.listen(5001, () => console.log('Server listening on port 5001!'));
+app.listen(5001, () => console.log('Server listening on port 5001...'));
 
