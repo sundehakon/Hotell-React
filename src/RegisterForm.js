@@ -3,7 +3,7 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import './App.css';
 
-const InputForm = () => {
+const RegisterForm = () => {
     const [email, setEmail] = useState('');
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
@@ -57,4 +57,4 @@ const InputForm = () => {
     );
 };
 
-export default InputForm;
+export default RegisterForm;
