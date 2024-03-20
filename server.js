@@ -25,5 +25,10 @@ app.post('/api/Users', async (req, res) => {
     res.status(201).send(newUser);
 });
 
+app.get('/api/Rooms', async (req, res) => {
+    const rooms = await rooms.find();
+    res.send(rooms);
+});
+
 app.listen(5001, () => console.log('Server listening on port 5001...'));
 
