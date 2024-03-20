@@ -26,6 +26,8 @@ const InputForm = () => {
 
     return (
         <form onSubmit={handleSubmit}>
+            <h2>Register</h2>
+            <a href='/'>Home</a>
             <label>
                 Email:
                 <input

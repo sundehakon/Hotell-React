@@ -19,10 +19,11 @@ const RoomForm = () => {
     return (
         <div>
             <h2>Rooms</h2>
+            <a href='/'>Home</a>
             <ul>
                 {rooms.map(room => (
                     <li key={room._id}>
-                        Number: {room.number}<br/>
+                        Room number: {room.number}<br/>
                         Floor: {room.floor}<br/>
                         Availability: {room.availability}<br/>
                         Size: {room.size}<br/>
