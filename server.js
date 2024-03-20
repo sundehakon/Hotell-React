@@ -26,8 +26,12 @@ app.post('/api/Users', async (req, res) => {
 });
 
 app.get('/api/Rooms', async (req, res) => {
-    const rooms = await rooms.find();
-    res.send(rooms);
+    try {
+        const rooms = await Room.find();
+        res.send(rooms);
+    } catch (error) {
+        res.status(500).send({ error: 'Internal Server Error' });
+    }
 });
 
 app.listen(5001, () => console.log('Server listening on port 5001...'));
