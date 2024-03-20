@@ -25,6 +25,16 @@ app.post('/api/Users', async (req, res) => {
     res.status(201).send(newUser);
 });
 
+const roomSchema = new mongoose.Schema({
+    number: String,
+    floor: String,
+    availability: String,
+    size: String,
+    price: String,
+});
+
+const Room = mongoose.model('Room', roomSchema, 'Rooms');
+
 app.get('/api/Rooms', async (req, res) => {
     try {
         const rooms = await Room.find();
