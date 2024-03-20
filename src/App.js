@@ -6,7 +6,7 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/register" element={<InputForm />} />
+        <Route path="/" element={<InputForm />} />
       </Routes>
     </Router>
   );
