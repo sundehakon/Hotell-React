@@ -22,11 +22,11 @@ const RoomForm = () => {
             <ul>
                 {rooms.map(room => (
                     <li key={room._id}>
-                        Number: {room.Number}<br/>
-                        Floor: {room.Floor}<br/>
-                        Availability: {room.Availability}<br/>
-                        Size: {room.Size}<br/>
-                        Price: {room.Price}<br/>
+                        Number: {room.number}<br/>
+                        Floor: {room.floor}<br/>
+                        Availability: {room.availability}<br/>
+                        Size: {room.size}<br/>
+                        Price: {room.price}<br/>
                     </li>
                 ))}
             </ul>
