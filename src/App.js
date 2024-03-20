@@ -12,7 +12,11 @@ function App() {
       <Router>
         <Routes>
           <Route path='/' element={<Home />} />
-          <Route path='/register' element={<RegisterForm />} />
+          <Route path='/register' element={
+            <div className='register-form-container'>
+              <RegisterForm />
+            </div>
+          } />
           <Route path='/rooms' element={<RoomForm />} />
         </Routes>
       </Router>

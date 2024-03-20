@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-import './App.css';
+import Box from '@mui/material/Box';
+import { Typography } from '@mui/material';
 
 const RegisterForm = () => {
     const [email, setEmail] = useState('');
@@ -25,8 +26,19 @@ const RegisterForm = () => {
     };
 
     return (
+        <Box 
+            height={400} 
+            width={400} 
+            my={4} 
+            display={'flex'} 
+            flexDirection={'column'}
+            alignItems={'center'}   
+            justifyContent={'center'}
+            p={2} 
+            sx={{ border: '2px solid grey', textAlign: 'center' }}
+        >
         <form onSubmit={handleSubmit}>
-            <h2>Register</h2>
+            <Typography variant='h4'>Register</Typography>
             <a href='/'>Home</a>
             <label>
                 Email:
@@ -54,6 +66,7 @@ const RegisterForm = () => {
             </label>
             <button type="submit">Submit</button>
         </form>
+        </Box>
     );
 };
 

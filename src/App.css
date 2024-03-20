@@ -36,3 +36,11 @@
     transform: rotate(360deg);
   }
 }
+
+.register-form-container {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}

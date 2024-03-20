@@ -1,15 +1,21 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
-import { Typography } from '@mui/material';
+import Box from '@mui/material/Box';
+import Link from '@mui/material/Link';
+import Typography from '@mui/material/Typography';
+import '@fontsource/roboto/300.css';
 
 const Home = () => {
     return (
-        <div>
-            <h1>Home</h1>
-            <Typography>Welcome to the hotel management system!</Typography>
-            <a href='/register'>Register</a>
-            <a href='/rooms'>Rooms</a>
-        </div>
+        <Box sx={{width: '100%', maxWidth: 500}}>
+            <Typography variant='h1' gutterBottom>
+                Home
+            </Typography>
+            <Typography variant='subtitle1' gutterBottom>
+                Welcome to the hotel management system!
+            </Typography>   
+            <Link href='/register'>Register</Link>
+            <Link href='/rooms'>Rooms</Link>
+        </Box>
     );
 }
 
