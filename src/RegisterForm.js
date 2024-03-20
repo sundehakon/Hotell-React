@@ -1,8 +1,16 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-import Box from '@mui/material/Box';
-import { Typography } from '@mui/material';
+import Button from '@mui/material/Button';
+import Card from '@mui/material/Card';
+import CardActions from '@mui/material/CardActions';
+import CardContent from '@mui/material/CardContent';
+import CardHeader from '@mui/material/CardHeader';
+import Divider from '@mui/material/Divider';
+import FormControl from '@mui/material/FormControl';
+import InputLabel from '@mui/material/InputLabel';
+import OutlinedInput from '@mui/material/OutlinedInput';
+import Grid from '@mui/material/Unstable_Grid2';
 
 const RegisterForm = () => {
     const [email, setEmail] = useState('');
@@ -26,20 +34,40 @@ const RegisterForm = () => {
     };
 
     return (
-        <Box 
-            height={400} 
-            width={400} 
-            my={4} 
-            display={'flex'} 
-            flexDirection={'column'}
-            alignItems={'center'}   
-            justifyContent={'center'}
-            p={2} 
-            sx={{ border: '2px solid grey', textAlign: 'center' }}
-        >
-        <form onSubmit={handleSubmit}>
-            <Typography variant='h4'>Register</Typography>
-            <a href='/'>Home</a>
+    <form onSubmit={handleSubmit}>
+        <Card>
+        <CardHeader subheader="Enter your personal details" title="Register" />
+        <Divider />
+        <CardContent>
+          <Grid container spacing={3}>
+            <Grid md={6} xs={12}>
+              <FormControl fullWidth required>
+                <InputLabel>Username</InputLabel>
+                <OutlinedInput label="Username" name="userName" onChange={(event) => setUsername(event.target.value)}/>
+              </FormControl>
+            </Grid>
+            <Grid md={6} xs={12}>
+              <FormControl fullWidth required>
+                <InputLabel>Email address</InputLabel>
+                <OutlinedInput label="Email address" name="email" onChange={(event) => setEmail(event.target.value)}/>
+              </FormControl>
+            </Grid>
+            <Grid md={6} xs={12}>
+              <FormControl fullWidth required>
+                <InputLabel>Password</InputLabel>
+                <OutlinedInput label="Password" name="password" type="password" onChange={(event) => setPassword(event.target.value)}/>
+              </FormControl>
+            </Grid>
+          </Grid>
+        </CardContent>
+        <Divider />
+        <CardActions sx={{ justifyContent: 'flex-end' }}>
+          <Button variant="contained" type='submit'>Register</Button>
+        </CardActions>
+      </Card>
+    </form>
+
+        /* <a href='/'>Home</a>
             <label>
                 Email:
                 <input
@@ -64,9 +92,7 @@ const RegisterForm = () => {
                     onChange={(event) => setPassword(event.target.value)}
                 />
             </label>
-            <button type="submit">Submit</button>
-        </form>
-        </Box>
+            <button type="submit">Submit</button> */
     );
 };
 
