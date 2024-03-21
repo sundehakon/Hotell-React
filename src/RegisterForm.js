@@ -22,7 +22,7 @@ const RegisterForm = () => {
         try {
             event.preventDefault();
             const payload = { email, username, password };
-            await axios.post('http://localhost:5001/api/Users', payload);
+            await axios.post('http://localhost:5002/api/Users', payload);
             setEmail('');
             setUsername('');
             setPassword('');

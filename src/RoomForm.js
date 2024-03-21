@@ -7,7 +7,7 @@ const RoomForm = () => {
     useEffect(() => {
         const fetchRooms = async () => {
             try {
-                const response = await axios.get('http://localhost:5001/api/Rooms');
+                const response = await axios.get('http://localhost:5002/api/Rooms');
                 setRooms(response.data);
             } catch (error) {
                 console.error(error);
