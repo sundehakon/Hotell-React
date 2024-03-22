@@ -6,7 +6,6 @@ This project is a hotel webpage created using React. It aims to provide users wi
 
 - Responsive design for optimal viewing on different devices
 - Interactive user interface with smooth transitions and animations
-- Integration with backend APIs to fetch and display real-time data
 - User authentication and authorization for secure access to certain features
 - Booking system to allow users to make reservations online
 
