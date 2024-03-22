@@ -1,24 +1,6 @@
 import React, { useState } from "react";
-import {
-  AppBar,
-  Toolbar,
-  Box,
-  IconButton,
-  List,
-  ListItem,
-  ListItemIcon,
-  ListItemText,
-  CssBaseline,
-  Drawer,
-  Typography,
-  Divider
-} from "@mui/material";
-import {
-  Login,
-  Menu,
-  Home,
-  KingBed
-} from "@mui/icons-material";
+import { AppBar, Toolbar, Box, IconButton, List, ListItem, ListItemIcon, ListItemText, CssBaseline, Drawer, Typography, Divider } from "@mui/material";
+import { Login, Menu, Home, KingBed } from "@mui/icons-material";
 import { useNavigate } from "react-router-dom";
 
 const useStyles = () => ({
