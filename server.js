@@ -15,14 +15,21 @@ const userSchema = new mongoose.Schema({
     email: String, 
     username: String, 
     password: String,
+    firstName: String,
+    lastName: String,
 });
 
 const User = mongoose.model('User', userSchema, 'Users');
 
 app.post('/api/Users', async (req, res) => {
-    const newUser = new User(req.body);
-    await newUser.save();
-    res.status(201).send(newUser);
+    try {
+        const newUser = new User(req.body);
+        const result = await newUser.save();
+        console.log(result);
+        res.status(201).send(newUser);
+    } catch (error) {
+        console.log(error);
+    }
 });
 
 app.post('/api/Users/login', async (req, res) => {

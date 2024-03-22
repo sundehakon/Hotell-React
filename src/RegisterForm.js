@@ -52,6 +52,7 @@ const RegisterForm = ({ setNavUsername }) => {
             }
 
             const payload = { email, username, password, firstName, lastName };
+            console.log(payload);
             await axios.post('http://localhost:5002/api/Users', payload);
             Cookies.set('username', username);
             setEmail('');
@@ -59,6 +60,7 @@ const RegisterForm = ({ setNavUsername }) => {
             setPassword('');
             setFirstName('');
             setLastName('');
+            console.log(firstName, lastName);
             console.log('User created!');
             navigate('/');
         } catch (error) {
@@ -88,7 +90,7 @@ const RegisterForm = ({ setNavUsername }) => {
             <Grid md={6} xs={12}>
               <FormControl fullWidth required>
                 <InputLabel>Username</InputLabel>
-                <OutlinedInput label="Username" name="userName" onChange={(event) => setUsername(event.target.value)}/>
+                <OutlinedInput label="Username" name="username" onChange={(event) => setUsername(event.target.value)}/>
               </FormControl>
             </Grid>
             <Grid md={6} xs={12}>
