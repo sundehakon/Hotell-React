@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import { AppBar, Toolbar, Box, IconButton, List, ListItem, ListItemIcon, ListItemText, CssBaseline, Drawer, Typography, Divider } from "@mui/material";
-import { Login, Menu, Home, KingBed } from "@mui/icons-material";
+import { Login, Menu, Home, KingBed, Person, Room } from "@mui/icons-material";
 import { useNavigate } from "react-router-dom";
 import Cookies from 'js-cookie';
+import RegisterForm from "./RegisterForm";
 
 const useStyles = () => ({
   menuSliderContainer: {
@@ -30,6 +31,11 @@ const listItems = [
     listIcon: <Login />,
     listText: "Register",
     route: "/register"
+  },
+  {
+    listIcon: <Person />,
+    listText: "Profile",
+    route: "/profile"
   }
 ];
 
@@ -49,6 +55,28 @@ export default function SideNav() {
     setOpen(false);
   }
 
+  const renderProfileOrRegister = () => {
+    if (username) {
+      return (
+        <ListItem className={classes.listItem} button onClick={() => handleListPath("/profile")}>
+          <ListItemIcon className={classes.listItem}>
+            <Person />
+          </ListItemIcon>
+          <ListItemText primary="Profile" />
+        </ListItem>
+      );
+    } else {
+      return (
+        <ListItem className={classes.listItem} button onClick={() => handleListPath("/register")}>
+          <ListItemIcon className={classes.listItem}>
+            <Login />
+          </ListItemIcon>
+          <ListItemText primary="Register" />
+        </ListItem>
+      );
+    }
+  };
+
   const sideList = () => (
     <Box 
       className={classes.menuSliderContainer} 
@@ -60,14 +88,19 @@ export default function SideNav() {
     </Box>
       <Divider />
       <List>
-        {listItems.map((listItem, index) => (
-          <ListItem className={classes.listItem} button key={index} onClick={() => handleListPath(listItem.route)}>
+          <ListItem className={classes.listItem} button onClick={() => handleListPath("/")}>
             <ListItemIcon className={classes.listItem}>
-              {listItem.listIcon}
+              <Home />
             </ListItemIcon>
-            <ListItemText primary={listItem.listText} />
+            <ListItemText primary="Home" />
           </ListItem>
-        ))}
+          <ListItem className={classes.listItem} button onClick={() => handleListPath("/rooms")}>
+            <ListItemIcon className={classes.listItem}>
+              <KingBed />
+            </ListItemIcon>
+            <ListItemText primary="Room" />
+          </ListItem>
+          {renderProfileOrRegister()}
       </List>
     </Box>
   );
