@@ -83,7 +83,7 @@ export default function SideNav() {
               <Menu />
             </IconButton>
             <Box sx={{ flexGrow: 1, display: 'flex', justifyContent: 'center' }}>
-              {username && <Typography variant="h5" sx={{ textAlign: 'center', gap: 10, fontWeight: 'bold' }}>Welcome, {username}</Typography>}
+              {username && <Typography variant="h6" sx={{ textAlign: 'center', gap: 10, fontWeight: 'bold' }}>Welcome, {username}</Typography>}
             </Box>
             <Drawer open={open} anchor="left" onClose={toggleSlider}>
               {sideList()}
