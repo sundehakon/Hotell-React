@@ -7,17 +7,23 @@ import LogInForm from './LogInForm';
 import { ThemeProvider } from '@mui/material/styles';
 import theme from './theme';
 import SideNav from './SideNav';
+import { useState } from 'react';
 
 function App() {
+  const [username, setUsername] = useState('');
+
+  const setNavUsername = (name) => {
+    setUsername(name);
+  }
   return (
     <ThemeProvider theme={theme}>
       <Router>
-        <SideNav />
+        <SideNav setUsername={setUsername} username={username}/>
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/register' element={
             <div className='register-form-container'>
-              <RegisterForm />
+              <RegisterForm  setNavUsername={setNavUsername}/>
             </div>
           } />
           <Route path='/login' element={

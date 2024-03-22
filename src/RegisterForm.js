@@ -14,7 +14,7 @@ import Grid from '@mui/material/Unstable_Grid2';
 import Link from '@mui/material/Link';
 import { Typography } from '@mui/material';
 
-const RegisterForm = () => {
+const RegisterForm = ({ setNavUsername }) => {
     const [email, setEmail] = useState('');
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
@@ -39,6 +39,8 @@ const RegisterForm = () => {
 
             const password = document.getElementById('password').value;
             const confirmPassword = document.getElementById('password_confirm').value;
+
+            setNavUsername(username);
 
             if (password !== confirmPassword) {
                 console.log('Passwords do not match');

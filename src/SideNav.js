@@ -14,7 +14,7 @@ import {
   Divider
 } from "@mui/material";
 import {
-  Apps,
+  Login,
   Menu,
   Home,
   KingBed
@@ -44,13 +44,13 @@ const listItems = [
     route: "/rooms"
   },
   {
-    listIcon: <Apps />,
+    listIcon: <Login />,
     listText: "Register",
     route: "/register"
   }
 ];
 
-export default function SideNav() {
+export default function SideNav({ username }) {
   const navigate = useNavigate();
   const classes = useStyles();
   const [open, setOpen] = useState(false);
@@ -71,7 +71,7 @@ export default function SideNav() {
       sx={{ width: 200 }}
     >
     <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column', padding: 1 }}>
-      <Typography variant="h4">Hotell</Typography>
+      <Typography variant="h5" sx={{ fontWeight: 'bold' }}>Hotell</Typography>
     </Box>
       <Divider />
       <List>
@@ -98,7 +98,7 @@ export default function SideNav() {
               <Menu />
             </IconButton>
             <Box sx={{ flexGrow: 1, display: 'flex', justifyContent: 'center' }}>
-              <Typography variant="h4" sx={{ textAlign: 'center', gap: 10 }}>Hotell</Typography>
+              <Typography variant="h5" sx={{ textAlign: 'center', gap: 10, fontWeight: 'bold' }}>Welcome, {username}</Typography>
             </Box>
             <Drawer open={open} anchor="left" onClose={toggleSlider}>
               {sideList()}
