@@ -11,6 +11,8 @@ import FormControl from '@mui/material/FormControl';
 import InputLabel from '@mui/material/InputLabel';
 import OutlinedInput from '@mui/material/OutlinedInput';
 import Grid from '@mui/material/Unstable_Grid2';
+import Link from '@mui/material/Link';
+import { Typography } from '@mui/material';
 
 const RegisterForm = () => {
     const [email, setEmail] = useState('');
@@ -18,9 +20,32 @@ const RegisterForm = () => {
     const [password, setPassword] = useState('');
     const navigate = useNavigate();
 
+    const checkPassword = function() {
+      const password = document.getElementById('password').value;
+      const confirmPassword = document.getElementById('password_confirm').value;
+    
+      if (password === confirmPassword) {
+        document.getElementById('message').style.color = 'green';
+        document.getElementById('message').innerHTML = 'Matching';
+      } else {
+        document.getElementById('message').style.color = 'red';
+        document.getElementById('message').innerHTML = 'Not Matching';
+      }
+    }
+
     const handleSubmit = async (event) => {
         try {
             event.preventDefault();
+
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('password_confirm').value;
+
+            if (password !== confirmPassword) {
+                console.log('Passwords do not match');
+                alert('Passwords do not match');
+                return;
+            }
+
             const payload = { email, username, password };
             await axios.post('http://localhost:5002/api/Users', payload);
             setEmail('');
@@ -55,13 +80,21 @@ const RegisterForm = () => {
             <Grid md={6} xs={12}>
               <FormControl fullWidth required>
                 <InputLabel>Password</InputLabel>
-                <OutlinedInput label="Password" name="password" type="password" onChange={(event) => setPassword(event.target.value)}/>
+                <OutlinedInput id="password" label="Password" name="password" type="password" onChange={(event) => setPassword(event.target.value)}/>
+              </FormControl>
+            </Grid>
+            <Grid md={6} xs={12}>
+              <FormControl fullWidth required>
+                <InputLabel sx={{ width: '100%' }}>Repeat password</InputLabel>
+                <OutlinedInput id="password_confirm" label="Password" name="password_confirm" type="password" onChange={checkPassword}/>
+                <Typography id="message"></Typography>
               </FormControl>
             </Grid>
           </Grid>
         </CardContent>
         <Divider />
-        <CardActions sx={{ justifyContent: 'flex-end' }}>
+        <CardActions sx={{ justifyContent: 'flex-end', gap: 1 }}>
+          <Link href="/login">Log in</Link>
           <Button variant="contained" type='submit'>Register</Button>
         </CardActions>
       </Card>

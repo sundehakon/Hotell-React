@@ -25,6 +25,41 @@ app.post('/api/Users', async (req, res) => {
     res.status(201).send(newUser);
 });
 
+app.post('/api/Users/login', async (req, res) => {
+    const { username, password } = req.body;
+
+    try {
+        const existingUser = await User.findOne({ username, password });
+        if (existingUser) {
+            res.send({ success: true, user: existingUser });
+        } else {
+            res.status(401).send({ success: false, message: 'Invalid username or password' });
+        }
+    } catch (error) {
+        res.status(500).send({ error: 'Internal Server Error' });
+    }
+});
+
+app.get('api/Users'), async (req, res) => {
+    const { username, password } = req.body;
+
+    try {
+        const user = await User.findOne({ username, password });
+
+        if (!user) {
+            return res.status(401).send({ success: false, message: 'Invalid username or password' });
+        }
+
+        if (user.password !== password) {
+            return res.status(401).send({ success: false, message: 'Invalid username or password' });
+        }
+
+        res.send({ success: true, user });
+    } catch (error) {
+        res.status(500).send({ error: 'Internal Server Error' });
+    }
+}
+
 const roomSchema = new mongoose.Schema({
     number: String,
     floor: String,
