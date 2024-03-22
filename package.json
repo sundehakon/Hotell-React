@@ -21,6 +21,7 @@
     "express": "^4.19.1",
     "fs": "^0.0.1-security",
     "http": "^0.0.1-security",
+    "js-cookie": "^3.0.5",
     "mongodb-client-encryption": "^6.0.0",
     "mongoose": "^8.2.2",
     "net": "^1.0.2",

@@ -13,6 +13,7 @@ import OutlinedInput from '@mui/material/OutlinedInput';
 import Grid from '@mui/material/Unstable_Grid2';
 import Link from '@mui/material/Link';
 import { Typography } from '@mui/material';
+import Cookies from 'js-cookie';
 
 const RegisterForm = ({ setNavUsername }) => {
     const [email, setEmail] = useState('');
@@ -50,6 +51,7 @@ const RegisterForm = ({ setNavUsername }) => {
 
             const payload = { email, username, password };
             await axios.post('http://localhost:5002/api/Users', payload);
+            Cookies.set('username', username);
             setEmail('');
             setUsername('');
             setPassword('');

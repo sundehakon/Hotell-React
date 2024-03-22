@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { AppBar, Toolbar, Box, IconButton, List, ListItem, ListItemIcon, ListItemText, CssBaseline, Drawer, Typography, Divider } from "@mui/material";
 import { Login, Menu, Home, KingBed } from "@mui/icons-material";
 import { useNavigate } from "react-router-dom";
+import Cookies from 'js-cookie';
 
 const useStyles = () => ({
   menuSliderContainer: {
@@ -32,10 +33,12 @@ const listItems = [
   }
 ];
 
-export default function SideNav({ username }) {
+export default function SideNav() {
   const navigate = useNavigate();
   const classes = useStyles();
   const [open, setOpen] = useState(false);
+
+  const username = Cookies.get('username');
 
   const toggleSlider = () => {
     setOpen(!open);
@@ -80,7 +83,7 @@ export default function SideNav({ username }) {
               <Menu />
             </IconButton>
             <Box sx={{ flexGrow: 1, display: 'flex', justifyContent: 'center' }}>
-              <Typography variant="h5" sx={{ textAlign: 'center', gap: 10, fontWeight: 'bold' }}>Welcome, {username}</Typography>
+              {username && <Typography variant="h5" sx={{ textAlign: 'center', gap: 10, fontWeight: 'bold' }}>Welcome, {username}</Typography>}
             </Box>
             <Drawer open={open} anchor="left" onClose={toggleSlider}>
               {sideList()}
