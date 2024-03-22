@@ -1,25 +1,17 @@
 import React, { useState } from "react";
-import {
-  AppBar,
-  Toolbar,
-  Box,
-  IconButton,
-  List,
-  ListItem,
-  ListItemIcon,
-  ListItemText,
-  makeStyles,
-  CssBaseline,
-  Drawer,
-  Typography
-} from "@material-ui/core";
-import {
-  Apps,
-  Menu,
-  ContactMail,
-  AssignmentInd,
-  Home
-} from "@material-ui/icons";
+import { makeStyles } from '@mui/styles';
+import Box from '@mui/material/Box';
+import List from '@mui/material/List';
+import ListItem from '@mui/material/ListItem';
+import ListItemIcon from '@mui/material/ListItemIcon';
+import ListItemText from '@mui/material/ListItemText';
+import AppBar from '@mui/material/AppBar';
+import Toolbar from '@mui/material/Toolbar';
+import IconButton from '@mui/material/IconButton';
+import Typography from '@mui/material/Typography';
+import Drawer from '@mui/material/Drawer';
+import CssBaseline from '@mui/material/CssBaseline';
+import { Home, AssignmentInd, Apps, ContactMail, Menu } from '@mui/icons-material';
 
 const useStyles = makeStyles((theme) => ({
   menuSliderContainer: {
@@ -83,20 +75,19 @@ export default function SideNav() {
   return (
     <>
       <CssBaseline />
-
       <Box component="nav">
         <AppBar position="static">
           <Toolbar>
             <IconButton onClick={toggleSlider}>
               <Menu />
             </IconButton>
-            <Typography>Portfolio</Typography>
-            <Drawer open={open} anchor="right" onClose={toggleSlider}>
-              {sideList()}
-            </Drawer>
+            <Typography variant="h6">Portfolio</Typography>
           </Toolbar>
         </AppBar>
       </Box>
+      <Drawer open={open} anchor="right" onClose={toggleSlider}>
+        {sideList()}
+      </Drawer>
     </>
   );
 }
