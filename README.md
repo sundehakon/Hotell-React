@@ -1,4 +1,4 @@
-# Hotel webpage created in React
+# Hotel webpage created in React ![React icon](https://raw.githubusercontent.com/edent/SuperTinyIcons/d190e37443ed7a09f39017cbf06d1b6be82d06e1/images/svg/react.svg)
 
 This project is a hotel webpage created using React. It aims to provide users with information about the hotel, its amenities, and the services it offers.
 
