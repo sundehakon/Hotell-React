@@ -6,11 +6,13 @@ import RegisterForm from './RegisterForm';
 import LogInForm from './LogInForm';
 import { ThemeProvider } from '@mui/material/styles';
 import theme from './theme';
+import SideNav from './SideNav';
 
 function App() {
   return (
     <ThemeProvider theme={theme}>
       <Router>
+        <SideNav />
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/register' element={
