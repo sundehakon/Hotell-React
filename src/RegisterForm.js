@@ -19,6 +19,8 @@ const RegisterForm = ({ setNavUsername }) => {
     const [email, setEmail] = useState('');
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
+    const [firstName, setFirstName] = useState('');
+    const [lastName, setLastName] = useState('');
     const navigate = useNavigate();
 
     const checkPassword = function() {
@@ -49,12 +51,14 @@ const RegisterForm = ({ setNavUsername }) => {
                 return;
             }
 
-            const payload = { email, username, password };
+            const payload = { email, username, password, firstName, lastName };
             await axios.post('http://localhost:5002/api/Users', payload);
             Cookies.set('username', username);
             setEmail('');
             setUsername('');
             setPassword('');
+            setFirstName('');
+            setLastName('');
             console.log('User created!');
             navigate('/');
         } catch (error) {
@@ -69,6 +73,18 @@ const RegisterForm = ({ setNavUsername }) => {
         <Divider />
         <CardContent>
           <Grid container spacing={3}>
+          <Grid md={6} xs={12}>
+              <FormControl fullWidth required>
+                <InputLabel>First name</InputLabel>
+                <OutlinedInput label="First name" name="firstName" onChange={(event) => setFirstName(event.target.value)}/>
+              </FormControl>
+            </Grid>
+            <Grid md={6} xs={12}>
+              <FormControl fullWidth required>
+                <InputLabel>Last name</InputLabel>
+                <OutlinedInput label="Last name" name="lastName" onChange={(event) => setLastName(event.target.value)}/>
+              </FormControl>
+            </Grid>
             <Grid md={6} xs={12}>
               <FormControl fullWidth required>
                 <InputLabel>Username</InputLabel>
@@ -90,7 +106,7 @@ const RegisterForm = ({ setNavUsername }) => {
             <Grid md={6} xs={12}>
               <FormControl fullWidth required>
                 <InputLabel sx={{ width: '100%' }}>Repeat password</InputLabel>
-                <OutlinedInput id="password_confirm" label="Password" name="password_confirm" type="password" onChange={checkPassword}/>
+                <OutlinedInput id="password_confirm" label="Repeat password" name="password_confirm" type="password" onChange={checkPassword}/>
                 <Typography id="message"></Typography>
               </FormControl>
             </Grid>
