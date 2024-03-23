@@ -3,7 +3,6 @@ import { AppBar, Toolbar, Box, IconButton, List, ListItem, ListItemIcon, ListIte
 import { Login, Menu, Home, KingBed, Person, Room } from "@mui/icons-material";
 import { useNavigate } from "react-router-dom";
 import Cookies from 'js-cookie';
-import RegisterForm from "./RegisterForm";
 
 const useStyles = () => ({
   menuSliderContainer: {
@@ -84,7 +83,7 @@ export default function SideNav() {
       sx={{ width: 200 }}
     >
     <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column', padding: 1 }}>
-      <Typography variant="h5" sx={{ fontWeight: 'bold' }}>Hotell</Typography>
+      <Typography variant="h5" sx={{ fontWeight: 'bold', paddingRight: 12 }}>Hotell</Typography>
     </Box>
       <Divider />
       <List>
@@ -113,10 +112,10 @@ export default function SideNav() {
         <AppBar position="static">
           <Toolbar>
             <IconButton onClick={toggleSlider}>
-              <Menu />
+              <Menu sx={{ color: 'white'}}/>
             </IconButton>
             <Box sx={{ flexGrow: 1, display: 'flex', justifyContent: 'center' }}>
-              {username && <Typography variant="h6" sx={{ textAlign: 'center', gap: 10, fontWeight: 'bold' }}>Welcome, {username}</Typography>}
+              {username && <Typography variant="h6" sx={{ textAlign: 'center', gap: 10, fontWeight: 'bold', paddingRight: 5 }}>Welcome, {username}</Typography>}
             </Box>
             <Drawer open={open} anchor="left" onClose={toggleSlider}>
               {sideList()}

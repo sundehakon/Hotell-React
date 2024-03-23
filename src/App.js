@@ -31,7 +31,11 @@ function App() {
               <LogInForm />
             </div>
           } />
-          <Route path='/rooms' element={<RoomForm />} />
+          <Route path='/rooms' element={
+          <div className='room-form-container'>
+            <RoomForm />
+          </div>
+          } />
         </Routes>
       </Router>
     </ThemeProvider>
