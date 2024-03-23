@@ -17,6 +17,7 @@ import { Typography } from '@mui/material';
 function LogInForm() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const [firstName, setFirstName] = useState('');
   const navigate = useNavigate();
 
   const handleSubmit = async (event) => {
@@ -35,8 +36,16 @@ function LogInForm() {
 
       if (data.success) {
         console.log('User logged in successfully!');
-        navigate('/');
-        Cookies.set('username', username);
+
+        const userDataResponse = await fetch(`http://localhost:5002/api/Users/${username}`);
+        const userData = await userDataResponse.json();
+        if (userData.success) {
+          setFirstName(userData.firstName);
+          Cookies.set('firstName', userData.firstName);
+          navigate('/');
+        } else {
+          alert('Invalid username or password')
+        }
       } else {
         alert('Invalid username or password!');
       }

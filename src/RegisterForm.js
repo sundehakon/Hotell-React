@@ -55,6 +55,7 @@ const RegisterForm = ({ setNavUsername }) => {
       console.log(payload);
       await axios.post('http://localhost:5002/api/Users', payload);
       Cookies.set('username', username);
+      Cookies.set('firstName', firstName);
       setEmail('');
       setUsername('');
       setPassword('');

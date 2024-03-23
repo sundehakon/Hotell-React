@@ -44,6 +44,7 @@ export default function SideNav() {
   const [open, setOpen] = useState(false);
 
   const username = Cookies.get('username');
+  const firstName = Cookies.get('firstName');
 
   const toggleSlider = () => {
     setOpen(!open);
@@ -111,7 +112,7 @@ export default function SideNav() {
               <Menu sx={{ color: 'white'}}/>
             </IconButton>
             <Box sx={{ flexGrow: 1, display: 'flex', justifyContent: 'center' }}>
-              {username && <Typography variant="h6" sx={{ textAlign: 'center', gap: 10, fontWeight: 'bold', paddingRight: 5 }}>Welcome, {username}!</Typography>}
+              {username && <Typography variant="h6" sx={{ textAlign: 'center', gap: 10, fontWeight: 'bold', paddingRight: 5 }}>Welcome, {firstName}!</Typography>}
             </Box>
             <Drawer open={open} anchor="left" onClose={toggleSlider}>
               {sideList()}
