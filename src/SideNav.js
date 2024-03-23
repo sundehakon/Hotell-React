@@ -82,10 +82,6 @@ export default function SideNav() {
       component="div" 
       sx={{ width: 200 }}
     >
-    <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column', padding: 1 }}>
-      <Typography variant="h5" sx={{ fontWeight: 'bold', paddingRight: 12 }}>Hotell</Typography>
-    </Box>
-      <Divider />
       <List>
           <ListItem className={classes.listItem} button onClick={() => handleListPath("/")}>
             <ListItemIcon className={classes.listItem}>
@@ -115,7 +111,7 @@ export default function SideNav() {
               <Menu sx={{ color: 'white'}}/>
             </IconButton>
             <Box sx={{ flexGrow: 1, display: 'flex', justifyContent: 'center' }}>
-              {username && <Typography variant="h6" sx={{ textAlign: 'center', gap: 10, fontWeight: 'bold', paddingRight: 5 }}>Welcome, {username}</Typography>}
+              {username && <Typography variant="h6" sx={{ textAlign: 'center', gap: 10, fontWeight: 'bold', paddingRight: 5 }}>Welcome, {username}!</Typography>}
             </Box>
             <Drawer open={open} anchor="left" onClose={toggleSlider}>
               {sideList()}

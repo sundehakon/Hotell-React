@@ -12,7 +12,7 @@ import InputLabel from '@mui/material/InputLabel';
 import OutlinedInput from '@mui/material/OutlinedInput';
 import Grid from '@mui/material/Unstable_Grid2';
 import Link from '@mui/material/Link';
-import { Typography } from '@mui/material';
+import { Typography, Box } from '@mui/material';
 import Cookies from 'js-cookie';
 
 const RegisterForm = ({ setNavUsername }) => {
@@ -67,12 +67,15 @@ const RegisterForm = ({ setNavUsername }) => {
       console.error(error);
     }
   };
+  const isRegistered = Cookies.get('username');
 
-  // User registration form component
-  // Each input fields assign value to the variable through an onChange event
-  // Button triggers the handleSubmit event
-  return (
-    <form onSubmit={handleSubmit}>
+    if (isRegistered) {
+    return (
+      <Typography variant='h5' sx={{ textAlign: 'center' }}>You're logged in.</Typography>
+    );
+    } else {
+      return (
+      <form onSubmit={handleSubmit}>
       <Card sx={{ maxWidth: 850 }}>
         <CardHeader subheader="Enter your personal details" title="Register" />
         <Divider />
@@ -154,8 +157,10 @@ const RegisterForm = ({ setNavUsername }) => {
         </CardActions>
       </Card>
     </form>
-  );
-};
+      );
+    };
+  };
 
 // Exports component
 export default RegisterForm;
+
