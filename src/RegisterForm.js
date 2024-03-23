@@ -73,7 +73,7 @@ const RegisterForm = ({ setNavUsername }) => {
     // Button triggers the handleSubmit event
     return (
     <form onSubmit={handleSubmit}>
-        <Card>
+        <Card sx={{ maxWidth: 850 }}>
         <CardHeader subheader="Enter your personal details" title="Register" />
         <Divider />
         <CardContent>
