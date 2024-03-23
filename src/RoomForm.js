@@ -20,7 +20,6 @@ const RoomForm = () => {
     return (
         <div>
             <Typography variant='h2'>Rooms</Typography>
-            <a href='/'>Home</a>
             <ul>
                 {rooms.map(room => (
                     <li key={room._id}>

@@ -98,7 +98,7 @@ export default function SideNav() {
             <ListItemIcon className={classes.listItem}>
               <KingBed />
             </ListItemIcon>
-            <ListItemText primary="Room" />
+            <ListItemText primary="Rooms" />
           </ListItem>
           {renderProfileOrRegister()}
       </List>

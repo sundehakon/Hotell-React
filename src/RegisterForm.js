@@ -68,6 +68,9 @@ const RegisterForm = ({ setNavUsername }) => {
         }
     };
 
+    // User registration form component
+    // Each input fields assign value to the variable through an onChange event
+    // Button triggers the handleSubmit event
     return (
     <form onSubmit={handleSubmit}>
         <Card>
@@ -78,7 +81,7 @@ const RegisterForm = ({ setNavUsername }) => {
           <Grid md={6} xs={12}>
               <FormControl fullWidth required>
                 <InputLabel>First name</InputLabel>
-                <OutlinedInput label="First name" name="firstName" onChange={(event) => setFirstName(event.target.value)}/>
+                <OutlinedInput label="First name" name="firstName" onChange={(event) => setFirstName(event.target.value)}/> 
               </FormControl>
             </Grid>
             <Grid md={6} xs={12}>
@@ -116,7 +119,7 @@ const RegisterForm = ({ setNavUsername }) => {
         </CardContent>
         <Divider />
         <CardActions sx={{ justifyContent: 'flex-end', gap: 1 }}>
-          <Link href="/login">Log in</Link>
+          <Link href="/login">Already have an account?</Link>
           <Button variant="contained" type='submit'>Register</Button>
         </CardActions>
       </Card>
@@ -124,4 +127,5 @@ const RegisterForm = ({ setNavUsername }) => {
     );
 };
 
+// Exports component
 export default RegisterForm;
