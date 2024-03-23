@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { Typography, Card, List, ListItem, CardContent } from '@mui/material';
+import { Typography, Card, CardContent, Grid } from '@mui/material';
 
 const RoomForm = () => {
     const [rooms, setRooms] = useState([]);
@@ -20,7 +20,7 @@ const RoomForm = () => {
     return (
         <div>
         <Typography variant='h2'>Rooms</Typography>
-        <Grid>
+        <Grid container spacing={3}>
             <Card>
                 <CardContent>
 
