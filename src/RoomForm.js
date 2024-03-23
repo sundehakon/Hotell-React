@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { Typography } from '@mui/material';
+import { Typography, Card, List, ListItem, CardContent } from '@mui/material';
 
 const RoomForm = () => {
     const [rooms, setRooms] = useState([]);
@@ -19,18 +19,24 @@ const RoomForm = () => {
 
     return (
         <div>
-            <Typography variant='h2'>Rooms</Typography>
-            <ul>
-                {rooms.map(room => (
-                    <li key={room._id}>
-                        Room number: {room.number}<br/>
-                        Floor: {room.floor}<br/>
-                        Availability: {room.availability}<br/>
-                        Size: {room.size}<br/>
-                        Price: {room.price}<br/>
-                    </li>
-                ))}
-            </ul>
+        <Typography variant='h2'>Rooms</Typography>
+        <Grid>
+            <Card>
+                <CardContent>
+
+                </CardContent>
+            </Card>
+            <Card>
+                <CardContent>
+                    
+                </CardContent>
+            </Card>
+            <Card>
+                <CardContent>
+                    
+                </CardContent>
+            </Card>
+        </Grid>
         </div>
     );
 };
