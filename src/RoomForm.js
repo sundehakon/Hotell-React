@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import { Typography } from '@mui/material';
 
 const RoomForm = () => {
     const [rooms, setRooms] = useState([]);
@@ -18,7 +19,7 @@ const RoomForm = () => {
 
     return (
         <div>
-            <h2>Rooms</h2>
+            <Typography variant='h2'>Rooms</Typography>
             <a href='/'>Home</a>
             <ul>
                 {rooms.map(room => (

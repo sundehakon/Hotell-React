@@ -11,6 +11,7 @@ import InputLabel from '@mui/material/InputLabel';
 import OutlinedInput from '@mui/material/OutlinedInput';
 import Grid from '@mui/material/Unstable_Grid2';
 import Link from '@mui/material/Link';
+import Cookies from 'js-cookie';
 
 function LogInForm () {
     const [username, setUsername] = useState('');
@@ -34,6 +35,7 @@ function LogInForm () {
       if (data.success) {
         console.log('User logged in successfully!');
         navigate('/');
+        Cookies.set('username', username);
       } else {
         alert('Invalid username or password!');
       }
