@@ -37,8 +37,8 @@ function App() {
             <RoomForm />
           </div>
           } />
+          <Route path='/profile' element={<Profile />} />
         </Routes>
-        <Route path='/profile' element={<Profile />}/>
       </Router>
     </ThemeProvider>
   );
