@@ -4,6 +4,7 @@ import RoomForm from './RoomForm';
 import Home from './Home';
 import RegisterForm from './RegisterForm';
 import LogInForm from './LogInForm';
+import Profile from './Profile';
 import { ThemeProvider } from '@mui/material/styles';
 import theme from './theme';
 import SideNav from './SideNav';
@@ -37,6 +38,7 @@ function App() {
           </div>
           } />
         </Routes>
+        <Route path='/profile' element={<Profile />}/>
       </Router>
     </ThemeProvider>
   );
