@@ -57,7 +57,7 @@ export default function SideNav() {
 
   const renderProfileOrRegister = () => {
     if (username) {
-      return (
+      return (  
         <ListItem className={classes.listItem} button onClick={() => handleListPath("/profile")}>
           <ListItemIcon className={classes.listItem}>
             <Person />
