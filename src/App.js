@@ -6,7 +6,7 @@ import RegisterForm from './components/RegisterForm';
 import LogInForm from './components/LogInForm';
 import Profile from './components/Profile';
 import { ThemeProvider } from '@mui/material/styles';
-import theme from './Theme/theme';
+import theme from './theme/theme';
 import SideNav from './components/SideNav';
 import { useState } from 'react';
 
