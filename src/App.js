@@ -1,13 +1,13 @@
 import './App.css';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import RoomForm from './RoomForm';
-import Home from './Home';
-import RegisterForm from './RegisterForm';
-import LogInForm from './LogInForm';
-import Profile from './Profile';
+import RoomForm from './components/RoomForm';
+import Home from './components/Home';
+import RegisterForm from './components/RegisterForm';
+import LogInForm from './components/LogInForm';
+import Profile from './components/Profile';
 import { ThemeProvider } from '@mui/material/styles';
-import theme from './theme';
-import SideNav from './SideNav';
+import theme from './Theme/theme';
+import SideNav from './components/SideNav';
 import { useState } from 'react';
 
 function App() {
