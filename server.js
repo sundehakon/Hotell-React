@@ -20,6 +20,24 @@ const userSchema = new mongoose.Schema({
 });
 
 const User = mongoose.model('User', userSchema, 'Users');
+const jwt = require('jsonwebtoken');
+const JWT_SECRET = process.env.JWT_SECRET;
+
+const verifyToken = (req, res, next) => {
+    const token = req.headers.authorization;
+    if (!token) {
+        return res.status(401).send({ message: 'No token provided' });
+    }
+
+    jwt.verify(token, JWT_SECRET, (err, decoded) => {
+        if (err) {
+            return res.status(401).send({ message: 'Unauthorized' });
+        }
+
+        req.username = decoded.username;
+        next();
+    })
+}
 
 app.post('/api/Users', async (req, res) => {
     try {
@@ -32,13 +50,14 @@ app.post('/api/Users', async (req, res) => {
     }
 });
 
-app.post('/api/Users/login', async (req, res) => {
+app.post('/api/Users/login', verifyToken, async (req, res) => {
     const { username, password } = req.body;
 
     try {
         const existingUser = await User.findOne({ username, password });
         if (existingUser) {
-            res.send({ success: true, user: existingUser });
+            const token = jwt.sign({ username }, process.env.JWT_SECRET);
+            res.send({ success: true, token });
         } else {
             res.status(401).send({ success: false, message: 'Invalid username or password' });
         }

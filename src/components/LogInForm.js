@@ -24,18 +24,22 @@ function LogInForm() {
     event.preventDefault();
 
     try {
+      const token = localStorage.getItem('token');
       const response = await fetch('http://localhost:5002/api/Users/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`
         },
         body: JSON.stringify({ username, password }),
       });
 
       const data = await response.json();
+      console.log(data);
 
       if (data.success) {
         console.log('User logged in successfully!');
+        localStorage.setItem('token', data.token);
 
         const userDataResponse = await fetch(`http://localhost:5002/api/Users/${username}`);
         const userData = await userDataResponse.json();
