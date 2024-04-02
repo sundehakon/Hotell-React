@@ -1,8 +1,7 @@
 import React, { useState } from "react";
-import { AppBar, Toolbar, Box, IconButton, List, ListItem, ListItemIcon, ListItemText, CssBaseline, Drawer, Typography, Divider } from "@mui/material";
-import { Login, Menu, Home, KingBed, Person, Room } from "@mui/icons-material";
+import { AppBar, Toolbar, Box, IconButton, List, ListItem, ListItemIcon, ListItemText, CssBaseline, Drawer } from "@mui/material";
+import { Login, Menu, Home, KingBed, Person } from "@mui/icons-material";
 import { useNavigate } from "react-router-dom";
-import Cookies from 'js-cookie';
 import { useAuth0 } from "@auth0/auth0-react";
 
 const useStyles = () => ({

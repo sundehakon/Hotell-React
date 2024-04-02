@@ -28,13 +28,17 @@ function App() {
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/login' element={!isAuthenticated && <LoginButton />} />
-          <Route path='/logout' element={isAuthenticated && <LogoutButton />} />
           <Route path='/rooms' element={
           <div className='room-form-container'>
             <RoomForm />
           </div>
           } />
-          <Route path='/profile' element={<Profile />} />
+          <Route path='/profile' element={
+            <div>
+              <Profile />
+              <LogoutButton />
+            </div>} 
+          />
         </Routes>
         </Auth0Provider>
       </Router>
