@@ -6,28 +6,20 @@ import Profile from './components/Profile';
 import { ThemeProvider } from '@mui/material/styles';
 import theme from './theme';
 import SideNav from './components/SideNav';
-import { useAuth0, Auth0Provider } from '@auth0/auth0-react';
-import LoginButton from './components/login';
-import LogoutButton from './components/logout';
+import { useAuth0 } from '@auth0/auth0-react';
+import Auth0ProviderWithHistory from './auth0provider';
 
 function App() {
   const { isAuthenticated } = useAuth0();
   console.log("Is Authenticated:", isAuthenticated);
 
   return (
+    <Auth0ProviderWithHistory>
     <ThemeProvider theme={theme}>
       <Router>
-        <Auth0Provider
-            domain="dev-bncxgcmnmpql2vnw.us.auth0.com"
-            clientId="xGMiPSBEkyAAZeaYP4jIOrqM0syNXQSt"
-            authorizationParams={{
-              redirectUri: window.location.origin
-            }}
-        >
         <SideNav />
         <Routes>
           <Route path='/' element={<Home />} />
-          <Route path='/login' element={!isAuthenticated && <LoginButton />} />
           <Route path='/rooms' element={
           <div className='room-form-container'>
             <RoomForm />
@@ -36,13 +28,12 @@ function App() {
           <Route path='/profile' element={
             <div>
               <Profile />
-              <LogoutButton />
             </div>} 
           />
         </Routes>
-        </Auth0Provider>
       </Router>
     </ThemeProvider>
+    </Auth0ProviderWithHistory>
   );
 }
 

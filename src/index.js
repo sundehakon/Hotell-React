@@ -3,9 +3,6 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import { Auth0Provider, useAuth0 } from '@auth0/auth0-react';
-import LoginButton from './components/login';
-import LogoutButton from './components/logout';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

@@ -15,29 +15,6 @@ const useStyles = () => ({
   }
 });
 
-const listItems = [
-  {
-    listIcon: <Home />,
-    listText: "Home",
-    route: "/"
-  },
-  {
-    listIcon: <KingBed />,
-    listText: "Rooms",
-    route: "/rooms"
-  },
-  {
-    listIcon: <Login />,
-    listText: "Register",
-    route: "/register"
-  },
-  {
-    listIcon: <Person />,
-    listText: "Profile",
-    route: "/profile"
-  }
-];
-
 export default function SideNav() {
   const navigate = useNavigate();
   const classes = useStyles();
@@ -52,28 +29,6 @@ export default function SideNav() {
     navigate(route);
     setOpen(false);
   }
-
-  const renderProfileOrRegister = () => {
-    if (isAuthenticated) {
-      return (  
-        <ListItem className={classes.listItem} button onClick={() => handleListPath("/profile")}>
-          <ListItemIcon className={classes.listItem}>
-            <Person />
-          </ListItemIcon>
-          <ListItemText primary="Profile" />
-        </ListItem>
-      );
-    } else {
-      return (
-        <ListItem className={classes.listItem} button onClick={() => handleListPath("/login")}>
-          <ListItemIcon className={classes.listItem}>
-            <Login />
-          </ListItemIcon>
-          <ListItemText primary="Log in" />
-        </ListItem>
-      );
-    }
-  };
 
   const sideList = () => (
     <Box 
@@ -94,7 +49,12 @@ export default function SideNav() {
             </ListItemIcon>
             <ListItemText primary="Rooms" />
           </ListItem>
-          {renderProfileOrRegister()}
+          <ListItem className={classes.listItem} button onClick={() => handleListPath("/profile")}>
+            <ListItemIcon className={classes.listItem}>
+              <Person />
+            </ListItemIcon>
+            <ListItemText primary="Profile" />
+          </ListItem>
       </List>
     </Box>
   );
