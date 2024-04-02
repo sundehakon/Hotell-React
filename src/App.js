@@ -2,36 +2,33 @@ import './App.css';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import RoomForm from './components/RoomForm';
 import Home from './components/Home';
-import RegisterForm from './components/RegisterForm';
-import LogInForm from './components/LogInForm';
 import Profile from './components/Profile';
 import { ThemeProvider } from '@mui/material/styles';
-import theme from './theme/theme';
+import theme from './theme';
 import SideNav from './components/SideNav';
-import { useState } from 'react';
+import { useAuth0, Auth0Provider } from '@auth0/auth0-react';
+import LoginButton from './components/login';
+import LogoutButton from './components/logout';
 
 function App() {
-  const [username, setUsername] = useState('');
+  const { isAuthenticated } = useAuth0();
+  console.log("Is Authenticated:", isAuthenticated);
 
-  const setNavUsername = (name) => {
-    setUsername(name);
-  }
   return (
     <ThemeProvider theme={theme}>
       <Router>
-        <SideNav setUsername={setUsername} username={username}/>
+        <Auth0Provider
+            domain="dev-bncxgcmnmpql2vnw.us.auth0.com"
+            clientId="xGMiPSBEkyAAZeaYP4jIOrqM0syNXQSt"
+            authorizationParams={{
+              redirectUri: window.location.origin
+            }}
+        >
+        <SideNav />
         <Routes>
           <Route path='/' element={<Home />} />
-          <Route path='/register' element={
-            <div className='register-form-container'>
-              <RegisterForm  setNavUsername={setNavUsername}/>
-            </div>
-          } />
-          <Route path='/login' element={
-            <div className='login-form-container'>
-              <LogInForm />
-            </div>
-          } />
+          <Route path='/login' element={!isAuthenticated && <LoginButton />} />
+          <Route path='/logout' element={isAuthenticated && <LogoutButton />} />
           <Route path='/rooms' element={
           <div className='room-form-container'>
             <RoomForm />
@@ -39,6 +36,7 @@ function App() {
           } />
           <Route path='/profile' element={<Profile />} />
         </Routes>
+        </Auth0Provider>
       </Router>
     </ThemeProvider>
   );

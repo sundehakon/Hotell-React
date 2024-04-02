@@ -3,12 +3,13 @@ import { AppBar, Toolbar, Box, IconButton, List, ListItem, ListItemIcon, ListIte
 import { Login, Menu, Home, KingBed, Person, Room } from "@mui/icons-material";
 import { useNavigate } from "react-router-dom";
 import Cookies from 'js-cookie';
+import { useAuth0 } from "@auth0/auth0-react";
 
 const useStyles = () => ({
   menuSliderContainer: {
     width: 250,
     background: "#511",
-    height: "100%"
+    height: "100%"  
   },
   listItem: {
     color: "tan"
@@ -42,9 +43,7 @@ export default function SideNav() {
   const navigate = useNavigate();
   const classes = useStyles();
   const [open, setOpen] = useState(false);
-
-  const username = Cookies.get('username');
-  const firstName = Cookies.get('firstName');
+  const { isAuthenticated } = useAuth0();
 
   const toggleSlider = () => {
     setOpen(!open);
@@ -56,7 +55,7 @@ export default function SideNav() {
   }
 
   const renderProfileOrRegister = () => {
-    if (username) {
+    if (isAuthenticated) {
       return (  
         <ListItem className={classes.listItem} button onClick={() => handleListPath("/profile")}>
           <ListItemIcon className={classes.listItem}>
@@ -67,11 +66,11 @@ export default function SideNav() {
       );
     } else {
       return (
-        <ListItem className={classes.listItem} button onClick={() => handleListPath("/register")}>
+        <ListItem className={classes.listItem} button onClick={() => handleListPath("/login")}>
           <ListItemIcon className={classes.listItem}>
             <Login />
           </ListItemIcon>
-          <ListItemText primary="Register" />
+          <ListItemText primary="Log in" />
         </ListItem>
       );
     }
@@ -111,9 +110,6 @@ export default function SideNav() {
             <IconButton onClick={toggleSlider}>
               <Menu sx={{ color: 'white'}}/>
             </IconButton>
-            <Box sx={{ flexGrow: 1, display: 'flex', justifyContent: 'center' }}>
-              {username && <Typography variant="h6" sx={{ textAlign: 'center', gap: 10, fontWeight: 'bold', paddingRight: 5 }}>Welcome, {firstName}!</Typography>}
-            </Box>
             <Drawer open={open} anchor="left" onClose={toggleSlider}>
               {sideList()}
             </Drawer>
