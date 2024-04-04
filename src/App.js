@@ -1,6 +1,6 @@
 import './App.css';
 import { Route, Routes, BrowserRouter } from 'react-router-dom';
-import RoomForm from './components/RoomForm';
+import RoomForm from './components/room';
 import Home from './components/Home';
 import Profile from './components/Profile';
 import { ThemeProvider } from '@mui/material/styles';
