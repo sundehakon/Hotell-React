@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { AppBar, Toolbar, Box, IconButton, List, ListItem, ListItemIcon, ListItemText, CssBaseline, Drawer, Button } from "@mui/material";
+import { AppBar, Toolbar, Box, IconButton, List, ListItem, ListItemIcon, ListItemText, CssBaseline, Drawer } from "@mui/material";
 import { Menu, Home, KingBed, Person } from "@mui/icons-material";
 import { useNavigate } from "react-router-dom";
 import { useAuth0 } from "@auth0/auth0-react";
@@ -16,9 +16,6 @@ const useStyles = () => ({
   },
   listItem: {
     color: "tan"
-  },
-  loginButton: {
-    marginTop: 'auto',
   }
 });
 
@@ -26,7 +23,7 @@ export default function SideNav() {
   const navigate = useNavigate();
   const classes = useStyles();
   const [open, setOpen] = useState(false);
-  const {loginWithRedirect, logout, user, isLoading} = useAuth0();
+  const {user, isLoading} = useAuth0();
 
   const toggleSlider = () => {
     setOpen(!open);
@@ -79,7 +76,7 @@ export default function SideNav() {
             <Drawer open={open} anchor="left" onClose={toggleSlider}>
               {sideList()}
             </Drawer>
-            <Box sx={{ marginLeft: 'auto' }} className={classes.loginButton}>
+            <Box sx={{ marginLeft: 'auto' }}>
             {!isLoading && !user && (
               <LoginButton />
             )}
