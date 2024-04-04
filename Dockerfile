@@ -1,4 +1,4 @@
-FROM node:18
+FROM 20.11.1
 WORKDIR /src
 COPY . /src/
 RUN npm install
