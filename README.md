@@ -17,7 +17,7 @@ Registration on this page works through Auth0 (https://auth0.com/)
 
 To run this project locally, follow these steps:
 
-1. Clone the repository: `$ git clone https://github.com/your-username/hotell-react.git`
+1. Clone the repository: `$ git clone https://github.com/sundehakon/hotell-react.git`
 2. Navigate to the project directory: `$ cd hotell-react`
 3. Install the dependencies: `$ npm install`
 4. You might have to run `$ npm install dotenv` aswell for the program to work
