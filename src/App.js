@@ -1,5 +1,5 @@
 import './App.css';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { Route, Routes, BrowserRouter } from 'react-router-dom';
 import RoomForm from './components/RoomForm';
 import Home from './components/Home';
 import Profile from './components/Profile';
@@ -14,9 +14,9 @@ function App() {
   console.log("Is Authenticated:", isAuthenticated);
 
   return (
-    <Auth0ProviderWithHistory>
     <ThemeProvider theme={theme}>
-      <Router>
+      <BrowserRouter>
+      <Auth0ProviderWithHistory>
         <SideNav />
         <Routes>
           <Route path='/' element={<Home />} />
@@ -31,9 +31,9 @@ function App() {
             </div>} 
           />
         </Routes>
-      </Router>
+      </Auth0ProviderWithHistory>
+      </BrowserRouter>
     </ThemeProvider>
-    </Auth0ProviderWithHistory>
   );
 }
 

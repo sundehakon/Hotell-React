@@ -11,18 +11,6 @@ app.use(express.json());
 mongoose.connect(process.env.MONGO_URI, {
 }).catch(error => console.error(error));
 
-const userSchema = new mongoose.Schema({
-    email: String, 
-    username: String, 
-    password: String,
-    firstName: String,
-    lastName: String,
-});
-
-const User = mongoose.model('User', userSchema, 'Users');
-const jwt = require('jsonwebtoken');
-const JWT_SECRET = process.env.JWT_SECRET;
-
 const verifyToken = (req, res, next) => {
     const token = req.headers.authorization;
     if (!token) {
