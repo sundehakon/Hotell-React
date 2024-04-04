@@ -6,7 +6,7 @@ import Profile from './components/Profile';
 import { ThemeProvider } from '@mui/material/styles';
 import theme from './theme';
 import SideNav from './components/SideNav';
-import { useAuth0 } from '@auth0/auth0-react';
+import { Auth0Provider, useAuth0 } from '@auth0/auth0-react';
 
 function App() {
   const { isAuthenticated } = useAuth0();
@@ -15,6 +15,7 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <BrowserRouter>
+      <Auth0Provider>
         <SideNav />
         <Routes>
           <Route path='/' element={<Home />} />
@@ -29,6 +30,7 @@ function App() {
             </div>} 
           />
         </Routes>
+      </Auth0Provider>
       </BrowserRouter>
     </ThemeProvider>
   );
