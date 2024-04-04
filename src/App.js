@@ -1,8 +1,8 @@
 import './App.css';
 import { Route, Routes, BrowserRouter } from 'react-router-dom';
 import RoomForm from './components/room';
-import Home from './components/Home';
-import Profile from './components/Profile';
+import Home from './components/home';
+import Profile from './components/profile';
 import { ThemeProvider } from '@mui/material/styles';
 import theme from './theme';
 import SideNav from './components/SideNav';

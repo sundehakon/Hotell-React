@@ -3,8 +3,6 @@ import Box from '@mui/material/Box';
 import Link from '@mui/material/Link';
 import Typography from '@mui/material/Typography';
 import '@fontsource/roboto/300.css';
-import LoginButton from './login';
-import LogoutButton from './logout';
 
 const Home = () => {
     return (
@@ -15,7 +13,6 @@ const Home = () => {
             <Typography variant='subtitle1' gutterBottom>
                 Welcome to the hotel management system!
             </Typography>   
-            <Link href='/register'>Register</Link>
             <Link href='/rooms'>Rooms</Link>
         </Box>
     );
