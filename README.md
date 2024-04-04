@@ -1,5 +1,4 @@
 # Hotel webpage created in React
-<img src="https://raw.githubusercontent.com/edent/SuperTinyIcons/d190e37443ed7a09f39017cbf06d1b6be82d06e1/images/svg/react.svg" alt="React icon" width="100" height="100">
 
 This project is a hotel webpage created using React. It aims to provide users with information about the hotel, its amenities, and the services it offers.
 
