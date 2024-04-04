@@ -14,6 +14,7 @@ root.render(
       domain={domain}
       clientId={clientId}
       redirectUri={window.location.origin}
+      cacheLocation='localstorage'
     >
       <App />
     </Auth0Provider>
