@@ -3,6 +3,8 @@ import { AppBar, Toolbar, Box, IconButton, List, ListItem, ListItemIcon, ListIte
 import { Menu, Home, KingBed, Person } from "@mui/icons-material";
 import { useNavigate } from "react-router-dom";
 import { useAuth0 } from "@auth0/auth0-react";
+import LoginButton from "./login";
+import LogoutButton from "./logout";
 
 const useStyles = () => ({
   menuSliderContainer: {
@@ -79,14 +81,10 @@ export default function SideNav() {
             </Drawer>
             <Box sx={{ marginLeft: 'auto' }} className={classes.loginButton}>
             {!isLoading && !user && (
-              <Button onClick={() => loginWithRedirect()}>
-                  Log in
-              </Button>
+              <LoginButton />
             )}
             {!isLoading && user && (
-              <Button onClick={() => logout({ returnTo: window.location.origin })}>
-                  Log out
-              </Button>
+              <LogoutButton />
             )}
             </Box>
           </Toolbar>
