@@ -10,6 +10,10 @@ This project is a hotel webpage created using React. It aims to provide users wi
 - User authentication and authorization for secure access to certain features
 - Booking system to allow users to make reservations online
 
+## User
+
+Registration on this page works through Auth0 (https://auth0.com/)
+
 ## Installation
 
 To run this project locally, follow these steps:
