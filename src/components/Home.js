@@ -14,6 +14,7 @@ const Home = () => {
                 Welcome to the hotel management system!
             </Typography>   
             <Link href='/rooms'>Rooms</Link>
+            <Typography>Test</Typography>
         </Box>
     );
 }
