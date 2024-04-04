@@ -5,7 +5,7 @@ import Home from './components/home';
 import Profile from './components/profile';
 import { ThemeProvider } from '@mui/material/styles';
 import theme from './theme';
-import SideNav from './components/SideNav';
+import SideNav from './components/sidenav';
 import { Auth0Provider, useAuth0 } from '@auth0/auth0-react';
 
 function App() {
