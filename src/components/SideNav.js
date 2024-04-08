@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { AppBar, Toolbar, Box, IconButton, List, ListItem, ListItemIcon, ListItemText, CssBaseline, Drawer } from "@mui/material";
-import { Menu, Home, KingBed, Person, Login } from "@mui/icons-material";
+import { Menu, Home, KingBed, Person } from "@mui/icons-material";
 import { useNavigate } from "react-router-dom";
 import { useAuth0 } from "@auth0/auth0-react";
 import LoginButton from "./login";
@@ -23,7 +23,7 @@ export default function SideNav() {
   const navigate = useNavigate();
   const classes = useStyles();
   const [open, setOpen] = useState(false);
-  const {user, isLoading, isAuthenticated } = useAuth0();
+  const {user, isLoading} = useAuth0();
 
   const toggleSlider = () => {
     setOpen(!open);
@@ -76,7 +76,7 @@ export default function SideNav() {
             <Drawer open={open} anchor="left" onClose={toggleSlider}>
               {sideList()}
             </Drawer>
-            <Box sx={{ marginLeft: 'auto' }}>
+            <Box>
             {!isLoading && !user && (
               <LoginButton />
             )}
