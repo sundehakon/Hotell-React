@@ -1,6 +1,6 @@
 import React from 'react';
 import { useAuth0 } from '@auth0/auth0-react';
-import { Typography, Box } from '@mui/material';
+import { Typography, Box, Card, Grid } from '@mui/material';
 
 const Profile = () => {
     const { user, isLoading, isAuthenticated } = useAuth0();
@@ -12,11 +12,20 @@ const Profile = () => {
     if (isAuthenticated) {
         return (
             isAuthenticated && (
-                <div>
+                <Grid
+                    container 
+                    spacing={0}
+                    direction="column"
+                    alignItems="center"
+                    justify="center"
+                    marginTop={20}
+                    style={{ minHeight: '100vh' }}>
+                <Card sx={{ width: 500 }}>
                     <img src={user.picture} alt={user.name} />
-                    <h2>{user.name}</h2>
-                    <p>{user.email}</p>
-                </div>
+                    <Typography variant='h3'>Welcome, {user.nickname}</Typography>
+                    <Typography>E-mail: {user.email}</Typography>
+                </Card>
+                </Grid>
             )
         );
     } else {
