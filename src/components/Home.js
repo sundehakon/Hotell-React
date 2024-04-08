@@ -6,7 +6,7 @@ import '@fontsource/roboto/300.css';
 const Home = () => {
     return (
         <Box sx={{width: '100%', maxWidth: 500}}>
-            <Typography variant='h1' gutterBottom>
+            <Typography variant='h1' gutterBottom sx={{ textAlign: 'center' }}>
                 Home
             </Typography>
             <Typography variant='subtitle1' gutterBottom>

@@ -1,11 +1,11 @@
 import './App.css';
 import { Route, Routes, BrowserRouter } from 'react-router-dom';
 import RoomForm from './components/room';
-import Home from './components/home';
-import Profile from './components/profile';
+import Home from './components/Home';
+import Profile from './components/Profile';
 import { ThemeProvider } from '@mui/material/styles';
 import theme from './theme';
-import SideNav from './components/sidenav';
+import SideNav from './components/SideNav';
 import { Auth0Provider, useAuth0 } from '@auth0/auth0-react';
 
 function App() {

@@ -76,7 +76,7 @@ export default function SideNav() {
             <Drawer open={open} anchor="left" onClose={toggleSlider}>
               {sideList()}
             </Drawer>
-            <Box>
+            <Box sx={{ marginLeft: 'auto' }}>
             {!isLoading && !user && (
               <LoginButton />
             )}
