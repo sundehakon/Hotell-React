@@ -6,7 +6,7 @@ import Profile from './components/Profile';
 import { ThemeProvider } from '@mui/material/styles';
 import theme from './theme';
 import SideNav from './components/SideNav';
-import { Auth0Provider, useAuth0 } from '@auth0/auth0-react';
+import { useAuth0 } from '@auth0/auth0-react';
 
 function App() {
   const { isAuthenticated } = useAuth0();
