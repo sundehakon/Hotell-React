@@ -15,12 +15,6 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <BrowserRouter>
-      <Auth0Provider
-        domain={process.env.REACT_APP_AUTH0_DOMAIN}
-        clientId={process.env.REACT_APP_AUTH0_CLIENT_ID}
-        redirectUri={window.location.origin}
-        cacheLocation='localstorage'
-      >
         <SideNav />
         <Routes>
           <Route path='/' element={<Home />} />
@@ -35,7 +29,6 @@ function App() {
             </div>} 
           />
         </Routes>
-      </Auth0Provider>
       </BrowserRouter>
     </ThemeProvider>
   );
