@@ -1,42 +1,45 @@
 require('dotenv').config();
 
-// Top level functions
 const express = require('express');
-const cors = require('cors');
 const mongoose = require('mongoose');
+const bodyParser = require('body-parser');
+
 const app = express();
-app.use(cors());
-app.use(express.json());
 
-// Connects mongoose
+app.use(bodyParser.json());
+
 mongoose.connect(process.env.MONGO_URI, {
-}).catch(error => console.error(error));
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+});
+const db = mongoose.connection;
 
-// Sets server port to 8080
-const port = process.env.port || 8080;
+const reservationSchema = new mongoose.Schema({
+    userId: String,
+    checkInDate: String, 
+    checkOutDate: String
+});
+const Reservation = mongoose.model('Reservation', reservationSchema);
 
-// Room logic
-// Schema for values in room
-const roomSchema = new mongoose.Schema({
-    number: String,
-    floor: String,
-    availability: String,
-    size: String,
-    price: String,
+app.post('/Orders', (req, res) => {
+    const { userId, checkInDate, checkOutDate } = req.body;
+
+    const reservation = new Reservation({
+        userId,
+        checkInDate,
+        checkOutDate
+    });
+
+    reservation.save((err, savedReservation) => {
+        if (err) {
+            res.status(500).send(err);
+        } else {
+            res.status(200).send(savedReservation);
+        }
+    });
 });
 
-const Room = mongoose.model('Room', roomSchema, 'Rooms');
-
-// GET operation for fetching room info in MongoDB
-app.get('/api/Rooms', async (req, res) => {
-    try {
-        const rooms = await Room.find();
-        res.send(rooms);
-    } catch (error) {
-        res.status(500).send({ error: 'Internal Server Error' });
-    }
-});
-
-app.listen(port);
-console.log('Running on port ', port);
-
+const PORT = process.env.PORT || 8080;
+app.listen(PORT, () => {
+    console.log(`Server is listening on port ${PORT}...`);
+})
