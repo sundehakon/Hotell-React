@@ -6,7 +6,7 @@ import { useAuth0 } from "@auth0/auth0-react";
 const ReservationForm = () => {
     const { user } = useAuth0();
     const [formData, setFormData] = useState({
-        userId: '',
+        userId: user?.sub,
         checkInDate: '',
         checkOutDate: ''
     });
@@ -40,11 +40,30 @@ const ReservationForm = () => {
                 Reservation Form
             </Typography>
             <form onSubmit={handleSubmit}>
-                <TextField
-                    fullWidth
-                    margin="normal"
-                    label=""
-                />
+                <Grid container spacing={2}>
+                    <Grid item xs={6}>
+                        <TextField
+                            fullWidth
+                            type="date"
+                            label="Check-in Date"
+                            name="checkInDate"
+                            value={formData.checkInDate}
+                            onChange={handleInputChange}
+                            required
+                        />
+                    </Grid>
+                    <Grid item xs={6}>
+                        <TextField
+                            fullWidth
+                            type="date"
+                            label="Check-out Date"
+                            name="checkOutDate"
+                            value={formData.checkOutDate}
+                            onChange={handleInputChange}
+                            required
+                        />
+                    </Grid>
+                </Grid>
             </form>
         </Container>
     )
