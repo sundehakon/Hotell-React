@@ -17,11 +17,22 @@ const reservationSchema = new mongoose.Schema({
     userId: String,
     checkInDate: String, 
     checkOutDate: String
-});
+}, { collection: 'Orders' });
+
 const Reservation = mongoose.model('Reservation', reservationSchema);
 
-app.post('/api/Orders', (req, res) => {
-    const { userId, checkInDate, checkOutDate } = req.body;
+const authenticateJWT = expressJwt({
+    secret: jwksRsa.expressJwtSecret({
+      cache: true,
+      rateLimit: true,
+      jwksRequestsPerMinute: 5,
+      jwksUri: `https://${process.env.AUTH0_DOMAIN}/.well-known/jwks.json`
+    }),
+    algorithms: ['RS256']
+  });
+
+app.post('/api/Orders', async (req, res) => {
+    const { checkInDate, checkOutDate } = req.body;
 
     const reservation = new Reservation({
         userId,
@@ -29,14 +40,25 @@ app.post('/api/Orders', (req, res) => {
         checkOutDate
     });
 
-    reservation.save((err, savedReservation) => {
-        if (err) {
-            res.status(500).send(err);
-        } else {
-            res.status(200).send(savedReservation);
-        }
-    });
+    try {
+        const savedReservation = await reservation.save();
+        res.status(200).send(savedReservation);
+    } catch (err) {
+        res.status(500).send(err);
+    }
 });
+
+app.get('/', (req, res) => {
+    res.send('Server is running...');
+});
+
+db.on('error', (error) => {
+    console.error('MongoDB connection error: ' + error);
+});
+
+db.once('open', () => {
+    console.log('Connected to MongoDB');
+})
 
 const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => {
