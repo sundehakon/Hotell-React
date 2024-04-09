@@ -64,7 +64,12 @@ const ReservationForm = () => {
                         />
                     </Grid>
                 </Grid>
+                <Button type="submit" variant="contained" color="primary">
+                    Submit
+                </Button>
             </form>
         </Container>
-    )
-}
+    );
+};
+
+export default ReservationForm;
