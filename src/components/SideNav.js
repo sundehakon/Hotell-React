@@ -47,11 +47,11 @@ export default function SideNav() {
             </ListItemIcon>
             <ListItemText primary="Home" />
           </ListItem>
-          <ListItem className={classes.listItem.toString()} button onClick={() => handleListPath("/rooms")}>
+          <ListItem className={classes.listItem.toString()} button onClick={() => handleListPath("/reservation")}>
             <ListItemIcon className={classes.listItem.toString()}>
               <KingBed />
             </ListItemIcon>
-            <ListItemText primary="Rooms" />
+            <ListItemText primary="Reservation" />
           </ListItem>
           <ListItem className={classes.listItem.toString()} button onClick={() => handleListPath("/profile")}>
             <ListItemIcon className={classes.listItem.toString()}>

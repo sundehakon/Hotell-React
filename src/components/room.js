@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import axios from "axios";
-import { Typography, Container, TextField } from "@mui/material";
+import { Typography, Container, TextField, Button, Grid } from "@mui/material";
 import { useAuth0 } from "@auth0/auth0-react";
 
 const ReservationForm = () => {
@@ -21,7 +21,7 @@ const ReservationForm = () => {
     const handleSubmit = async (event) => {
         event.preventDefault();
         try {
-            const response = await axios.post('/Orders', formData);
+            const response = await axios.post('http://localhost:8080/api/Orders', formData);
             setMessage('Reservation successfully saved!');
             setFormData({
                 userId: '',
