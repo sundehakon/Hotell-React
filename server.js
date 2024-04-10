@@ -4,8 +4,7 @@ const express = require('express');
 const cors = require('cors');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
-const expressJwt = require('express-jwt');
-const jwtAuthz = require('express-jwt-authz');
+const jwt = require('jsonwebtoken');
 const jwksRsa = require('jwks-rsa');
 
 const app = express();
@@ -24,17 +23,23 @@ const reservationSchema = new mongoose.Schema({
 
 const Reservation = mongoose.model('Reservation', reservationSchema);
 
-expressJwt({
-    secret: jwksRsa.expressJwtSecret({
-      cache: true,
-      rateLimit: true,
-      jwksRequestsPerMinute: 5,
-      jwksUri: `https://${process.env.REACT_APP_AUTH0_DOMAIN}/.well-known/jwks.json`
-    }),
-    algorithms: ['RS256']
-  });
+const verifyJwt = async (req, res, next) => {
+    const token = req.headers.authorization;
 
-app.post('/api/Orders', async (req, res) => {
+    if (!token) {
+        return res.status(401).json({ message: 'Token not provided' });
+    }
+
+    try {
+        const decodedToken = jwt.verify(token, process.env.JWT_SECRET);
+        req.user = decodedToken;
+        next();
+    } catch (error) {
+        return res.status(403).json({ message: 'Invalid token' });
+    }
+};
+
+app.post('/api/Orders', verifyJwt, async (req, res) => {
     const { checkInDate, checkOutDate } = req.body;
     const userId = req.user.sub;
 
@@ -53,17 +58,7 @@ app.post('/api/Orders', async (req, res) => {
     }
 });
 
-app.get('/api/Orders', 
-    expressJwt({
-        secret: jwksRsa.expressJwtSecret({
-        cache: true,
-        rateLimit: true,
-        jwksRequestsPerMinute: 5,
-        jwksUri: `https://${process.env.REACT_APP_AUTH0_DOMAIN}/.well-known/jwks.json`
-    }),
-        algorithms: ['RS256']
-  }),
-  async (req, res) => {
+app.get('/api/Orders', verifyJwt, async (req, res) => {
     const userId = req.user.sub;
 
     try {
