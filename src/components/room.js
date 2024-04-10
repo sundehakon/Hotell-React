@@ -8,7 +8,8 @@ const ReservationForm = () => {
     const [formData, setFormData] = useState({
         userId: user?.sub,
         checkInDate: '',
-        checkOutDate: ''
+        checkOutDate: '',
+        roomType: ''
     });
 
     const [message, setMessage] = useState('');
@@ -26,7 +27,8 @@ const ReservationForm = () => {
             setFormData({
                 userId: '',
                 checkInDate: '',
-                checkOutDate: ''
+                checkOutDate: '',
+                roomType: ''
             });
         } catch (error) {
             console.error('Error saving reservation: ', error);
@@ -62,6 +64,21 @@ const ReservationForm = () => {
                             onChange={handleInputChange}
                             required
                         />
+                    </Grid>
+                    <Grid item xs={6}>
+                        <FormControl fullWidth>
+                            <InputLabel id="room-type-label">Room Type</InputLabel>
+                            <Select
+                                labelId="room-type-label"
+                                id="room-type-select"
+                                value={formData.roomType}
+                                onChange={handleInputChange}
+                            >
+                                <MenuItem value={'family'}>Family</MenuItem>
+                                <MenuItem value={'double'}>Double</MenuItem>
+                                <MenuItem value={'single'}>Single</MenuItem>
+                            </Select>
+                        </FormControl>
                     </Grid>
                 </Grid>
                 <Button type="submit" variant="contained" color="primary">

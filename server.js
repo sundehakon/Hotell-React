@@ -18,7 +18,8 @@ const db = mongoose.connection;
 const reservationSchema = new mongoose.Schema({
     userId: String,
     checkInDate: String, 
-    checkOutDate: String
+    checkOutDate: String,
+    roomType: String
 }, { collection: 'Orders' });
 
 const Reservation = mongoose.model('Reservation', reservationSchema);
@@ -40,7 +41,8 @@ app.post('/api/Orders', async (req, res) => {
     const reservation = new Reservation({
         userId,
         checkInDate,
-        checkOutDate
+        checkOutDate,
+        roomType
     });
 
     try {
