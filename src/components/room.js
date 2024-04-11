@@ -71,7 +71,7 @@ const ReservationForm = () => {
                         <FormControl fullWidth>
                             <InputLabel id="room-type-label">Room Type</InputLabel>
                             <Select
-                                labelId="room-type-label"
+                                label="room-type-label"
                                 id="room-type-select"
                                 value={formData.roomType}
                                 onChange={handleInputChange}
@@ -79,6 +79,7 @@ const ReservationForm = () => {
                                 <MenuItem value={'family'}>Family</MenuItem>
                                 <MenuItem value={'double'}>Double</MenuItem>
                                 <MenuItem value={'single'}>Single</MenuItem>
+                                <MenuItem value={''}>None</MenuItem>
                             </Select>
                         </FormControl>
                     </Grid>
