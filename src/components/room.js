@@ -44,10 +44,11 @@ const ReservationForm = () => {
             <form onSubmit={handleSubmit}>
                 <Grid container spacing={2}>
                     <Grid item xs={6}>
+                    <InputLabel forHtml="check-in-date">Check-in Date</InputLabel>
                         <TextField
                             fullWidth
+                            id="check-in-date"
                             type="date"
-                            label="Check-in Date"
                             name="checkInDate"
                             value={formData.checkInDate}
                             onChange={handleInputChange}
@@ -55,10 +56,11 @@ const ReservationForm = () => {
                         />
                     </Grid>
                     <Grid item xs={6}>
+                        <InputLabel forHtml="check-out-date">Check-out Date</InputLabel>
                         <TextField
                             fullWidth
+                            id="check-out-date"
                             type="date"
-                            label="Check-out Date"
                             name="checkOutDate"
                             value={formData.checkOutDate}
                             onChange={handleInputChange}
