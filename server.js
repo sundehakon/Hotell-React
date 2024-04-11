@@ -40,7 +40,7 @@ const verifyJwt = async (req, res, next) => {
 };
 
 app.post('/api/Orders', verifyJwt, async (req, res) => {
-    const { checkInDate, checkOutDate } = req.body;
+    const { checkInDate, checkOutDate, roomType } = req.body;
     const userId = req.user.sub;
 
     const reservation = new Reservation({
