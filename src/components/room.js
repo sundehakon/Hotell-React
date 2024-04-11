@@ -73,6 +73,7 @@ const ReservationForm = () => {
                             <Select
                                 label="room-type-label"
                                 id="room-type-select"
+                                name="roomType"
                                 value={formData.roomType}
                                 onChange={handleInputChange}
                             >
