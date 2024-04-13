@@ -4,7 +4,7 @@ import { Typography, Container, TextField, Button, Grid, FormControl, InputLabel
 import { useAuth0 } from "@auth0/auth0-react";
 
 const ReservationForm = () => {
-    const { user } = useAuth0();
+    const { user, getAccessTokenSilently } = useAuth0();
     const [formData, setFormData] = useState({
         userId: user?.sub,
         checkInDate: '',
@@ -22,7 +22,12 @@ const ReservationForm = () => {
     const handleSubmit = async (event) => {
         event.preventDefault();
         try {
-            const response = await axios.post('http://localhost:8080/api/Orders', formData);
+            const token = await getAccessTokenSilently();
+            const response = await axios.post('http://localhost:8080/api/Orders', formData, {
+                headers: {
+                    Authorization: `Bearer ${token}`
+                }
+            });
             setMessage('Reservation successfully saved!');
             setFormData({
                 userId: '',
