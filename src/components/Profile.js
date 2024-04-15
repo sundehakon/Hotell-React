@@ -1,11 +1,12 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, StateHasChanged } from 'react';
 import { useAuth0 } from '@auth0/auth0-react';
-import { Typography, Box, Card, Grid } from '@mui/material';
+import { Typography, Box, Card, Grid, Button } from '@mui/material';
 import axios from 'axios';
 
 const Profile = () => {
     const { user, isLoading, isAuthenticated } = useAuth0();
     const [orders, setOrder] = useState([]);
+    const [setDeleteMessage] = useState('');
 
     useEffect(() => {
         const fetchOrders = async () => {
@@ -22,6 +23,16 @@ const Profile = () => {
 
         fetchOrders();
     }, [user]);
+
+    const handleDelete = async () => {
+        try {
+            const response = await axios.delete(`http://localhost:8080/api/Orders/${orders[0]._id}`);
+            setDeleteMessage(response.data.message);
+            StateHasChanged();
+        } catch (error) {
+            console.error('Error deleting order:', error);
+        }
+    }
 
     if (isLoading) {
         return <div>Loading...</div>;
@@ -56,6 +67,9 @@ const Profile = () => {
                             </li>
                         ))}
                     </ul>
+                    <Button onClick={handleDelete} variant="contained" color="error">
+                        Cancel
+                    </Button>
                 </Card>
                 )};
             </Grid>

@@ -49,6 +49,23 @@ app.get('/api/Orders', async (req, res) => {
     }
 });
 
+app.delete('/api/Orders/:orderId', async (req, res) => {
+    const { orderId } = req.params;
+
+    try {
+        const deletedOrder = await Reservation.findByIdAndDelete(orderId);
+
+        if (!deletedOrder) {
+            return res.status(404).json({ message: 'Order not found' });
+        }
+
+        res.status(200).json({ message: 'Order deleted' });
+    } catch (error) {
+        console.error('Error deleting order:', error);
+        res.status(500).json({ message: 'Internal server error' });
+    }
+});
+
 db.on('error', (error) => {
     console.error('MongoDB connection error: ' + error);
 });
