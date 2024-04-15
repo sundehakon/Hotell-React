@@ -1,18 +1,16 @@
 import React, { useState } from "react";
-import axios from "axios";
 import { Typography, Container, TextField, Button, Grid, FormControl, InputLabel, Select, MenuItem } from "@mui/material";
+import axios from "axios";
 import { useAuth0 } from "@auth0/auth0-react";
 
 const ReservationForm = () => {
-    const { user, getAccessTokenSilently } = useAuth0();
+    const { user } = useAuth0();
     const [formData, setFormData] = useState({
         userId: user?.sub,
         checkInDate: '',
         checkOutDate: '',
         roomType: ''
     });
-
-    const [message, setMessage] = useState('');
 
     const handleInputChange = (event) => {
         const { name, value } = event.target;
@@ -22,13 +20,8 @@ const ReservationForm = () => {
     const handleSubmit = async (event) => {
         event.preventDefault();
         try {
-            const token = await getAccessTokenSilently();
-            const response = await axios.post('http://localhost:8080/api/Orders', formData, {
-                headers: {
-                    Authorization: `Bearer ${token}`
-                }
-            });
-            setMessage('Reservation successfully saved!');
+            const dataToSend = { ...formData, userId: user?.sub };
+            const response = await axios.post('http://localhost:8080/api/Orders', dataToSend);
             setFormData({
                 userId: '',
                 checkInDate: '',
@@ -37,7 +30,6 @@ const ReservationForm = () => {
             });
         } catch (error) {
             console.error('Error saving reservation: ', error);
-            setMessage('Error saving reservation. Please try again.');
         }
     };
 

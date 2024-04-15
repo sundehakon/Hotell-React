@@ -4,8 +4,6 @@ const express = require('express');
 const cors = require('cors');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
-const jwksRsa = require('jwks-rsa');
-    const { expressjwt: jwt } = require('express-jwt');
 
 const app = express();
 app.use(cors());
@@ -13,20 +11,6 @@ app.use(bodyParser.json());
 
 mongoose.connect(process.env.MONGO_URI, {});
 const db = mongoose.connection;
-
-app.use(
-    jwt({
-        secret: jwksRsa.expressJwtSecret({
-            cache: true, 
-            rateLimit: true,
-            jwksRequestsPerMinute: 5,
-            jwksUri: `https://${process.env.REACT_APP_AUTH0_DOMAIN}/.well-known/jwks.json`
-        }),
-        audience: 'https://havblikk-api/',
-        issuer: `https://${process.env.REACT_APP_AUTH0_DOMAIN}/`,
-        algorithms: ['RS256']
-    }).unless({ path: ['api/public'] })
-);
 
 const reservationSchema = new mongoose.Schema({
     userId: String,
@@ -37,38 +21,8 @@ const reservationSchema = new mongoose.Schema({
 
 const Reservation = mongoose.model('Reservation', reservationSchema);
 
-const verifyJwt = async (req, res, next) => {
-    const authHeader = req.headers.authorization;
-
-    if (!authHeader || !authHeader.startsWith('Bearer ')) {
-        return res.status(401).json({ message: 'Token not provided' });
-    }
-
-    const token = authHeader.split(' ')[1];
-
-    jwt({
-        secret: jwksRsa.expressJwtSecret({
-            cache: true,
-            rateLimit: true,
-            jwksRequestsPerMinute: 5,
-            jwksUri: `https://${process.env.REACT_APP_AUTH0_DOMAIN}/.well-known/jwks.json`
-        }),
-        audience: 'https://havblikk-api/',
-        issuer: `https://${process.env.REACT_APP_AUTH0_DOMAIN}/`,
-        algorithms: ['RS256']
-    })(req, res, (err) => {
-        if (err) {
-            console.error('JWT Verification Error:', err.message);
-            return res.status(403).json({ message: 'Invalid token' });
-        }
-        next();
-    });
-};
-
-
-app.post('/api/Orders', verifyJwt, async (req, res) => {
-    const { checkInDate, checkOutDate, roomType } = req.body;
-    const userId = req.user.sub;
+app.post('/api/Orders', async (req, res) => {
+    const { checkInDate, checkOutDate, roomType, userId } = req.body;
 
     const reservation = new Reservation({
         userId,
@@ -85,14 +39,13 @@ app.post('/api/Orders', verifyJwt, async (req, res) => {
     }
 });
 
-app.get('/api/Orders', verifyJwt, async (req, res) => {
-    const userId = req.user.sub;
-
+app.get('/api/Orders', async (req, res) => {
     try {
-        const reservations = await Reservation.find({ userId });
-        res.status(200).json(reservations);
-    } catch (err) {
-        res.status(500).send(err);
+        const orders = await Reservation.find(); 
+        res.status(200).json(orders);
+    } catch (error) {
+        console.error('Error fetching orders:', error);
+        res.status(500).json({ error: 'Internal server error' });
     }
 });
 
