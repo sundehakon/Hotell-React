@@ -10,16 +10,18 @@ const Profile = () => {
     useEffect(() => {
         const fetchOrders = async () => {
             try {
-                const response = await axios.get('http://localhost:8080/api/Orders');
-                const matchingOrder = response.data.filter(order => order.userId === user.sub);
-                setOrder(matchingOrder);
+                if (user) {
+                    const response = await axios.get('http://localhost:8080/api/Orders');
+                    const matchingOrder = response.data.filter(order => order.userId === user.sub);
+                    setOrder(matchingOrder);
+                }
             } catch (error) {
                 console.error('Error fetching orders', error);
             }
         };
 
         fetchOrders();
-    }, []);
+    }, [user]);
 
     if (isLoading) {
         return <div>Loading...</div>;
@@ -40,7 +42,6 @@ const Profile = () => {
                     {user.picture && <img src={user.picture} alt={user.name} />}
                     <Typography variant='h3'>Welcome, {user.nickname}</Typography>
                     <Typography>E-mail: {user.email}</Typography>
-                    <Typography>User ID: {user.sub}</Typography>
                 </Card>
                 {orders && (
                 <Card>
