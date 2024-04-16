@@ -6,15 +6,15 @@ import '@fontsource/roboto/300.css';
 
 const Home = () => {
     return (
-        <Box sx={{width: '100%', maxWidth: 500}}>
-            <Typography variant='h1' gutterBottom>
-                Home
+        <Box sx={{ textAlign: 'center' }}>
+            <Typography variant='h5' gutterBottom marginTop={3}>
+                Havblikk
             </Typography>
-            <Typography variant='subtitle1' gutterBottom>
-                Welcome to the hotel management system!
-            </Typography>   
-            <Link href='/register'>Register</Link>
-            <Link href='/rooms'>Rooms</Link>
+            <hr style={{ width: 1400 }}/>
+            <Box sx={{ display: 'flex', justifyContent: 'center' }}>    
+                <Link href='/profile' sx={{ marginRight: 10 }}>Profile</Link>
+                <Link href='/reservation'>Reservation</Link>
+            </Box>
         </Box>
     );
 }

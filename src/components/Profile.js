@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useAuth0 } from '@auth0/auth0-react';
-import { Typography, Box, Card, Grid, Button, IconButton, Snackbar } from '@mui/material';
+import { Typography, Box, Card, Grid, Button, IconButton, Snackbar, List, ListItem } from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
 import axios from 'axios';
 
@@ -81,12 +81,12 @@ const Profile = () => {
                     <Typography variant='h4'>Orders</Typography>
                     <ul>
                         {orders.map((order, index) => (
-                            <li key={index}>
-                                <p>User ID: {order.userId}</p>
-                                <p>Check-in Date: {order.checkInDate}</p>
-                                <p>Check-out Date: {order.checkOutDate}</p>
-                                <p>Room Type: {order.roomType}</p>
-                            </li>
+                            <List key={index}>
+                                <ListItem>User ID: {order.userId}</ListItem>
+                                <ListItem>Check-in Date: {order.checkInDate}</ListItem>
+                                <ListItem>Check-out Date: {order.checkOutDate}</ListItem>
+                                <ListItem>Room Type: {order.roomType}</ListItem>
+                            </List>
                         ))}
                     </ul>
                     <Button onClick={handleDelete} variant="contained" color="error">
