@@ -41,7 +41,7 @@ const ReservationForm = () => {
             <form onSubmit={handleSubmit}>
                 <Grid container spacing={2}>
                     <Grid item xs={6}>
-                    <InputLabel forHtml="check-in-date">Check-in Date</InputLabel>
+                    <InputLabel>Check-in Date</InputLabel>
                         <TextField
                             fullWidth
                             id="check-in-date"
@@ -53,7 +53,7 @@ const ReservationForm = () => {
                         />
                     </Grid>
                     <Grid item xs={6}>
-                        <InputLabel forHtml="check-out-date">Check-out Date</InputLabel>
+                        <InputLabel>Check-out Date</InputLabel>
                         <TextField
                             fullWidth
                             id="check-out-date"

@@ -1,12 +1,13 @@
-import React, { useEffect, useState, StateHasChanged } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useAuth0 } from '@auth0/auth0-react';
-import { Typography, Box, Card, Grid, Button } from '@mui/material';
+import { Typography, Box, Card, Grid, Button, IconButton, Snackbar } from '@mui/material';
+import CloseIcon from '@mui/icons-material/Close';
 import axios from 'axios';
 
 const Profile = () => {
     const { user, isLoading, isAuthenticated } = useAuth0();
     const [orders, setOrder] = useState([]);
-    const [setDeleteMessage] = useState('');
+    const [open, setOpen] = useState(false);
 
     useEffect(() => {
         const fetchOrders = async () => {
@@ -27,12 +28,32 @@ const Profile = () => {
     const handleDelete = async () => {
         try {
             const response = await axios.delete(`http://localhost:8080/api/Orders/${orders[0]._id}`);
-            setDeleteMessage(response.data.message);
-            StateHasChanged();
+            setOpen(true);
         } catch (error) {
             console.error('Error deleting order:', error);
         }
     }
+
+    const handleClose = (event, reason) => {
+        if (reason === 'clickaway') {
+            return;
+        }
+
+        setOpen(false);
+    };
+
+    const confirmDelete = (
+        <React.Fragment>
+            <IconButton
+                size='small'
+                aria-label='close'
+                color='inherit'
+                onClick={handleClose}
+            >
+                <CloseIcon fontSize='small' />
+            </IconButton>
+        </React.Fragment>
+    )
 
     if (isLoading) {
         return <div>Loading...</div>;
@@ -40,6 +61,7 @@ const Profile = () => {
 
     if (isAuthenticated) {
         return (
+            <div>
             <Grid
                 container
                 spacing={0}
@@ -73,6 +95,14 @@ const Profile = () => {
                 </Card>
                 )};
             </Grid>
+            <Snackbar
+                open={open}
+                autoHideDuration={6000}
+                onClose={handleClose}
+                message='Cancellation confirmed'
+                action={confirmDelete}
+            />
+            </div>
         );
     } else {
         return (
