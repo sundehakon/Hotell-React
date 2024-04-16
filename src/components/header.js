@@ -1,7 +1,8 @@
 import React from 'react';
 import Box from '@mui/material/Box';
-import Link from '@mui/material/Link';
 import Typography from '@mui/material/Typography';
+import Button from '@mui/material/Button';
+import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined';
 import LoginButton from './login';
 import LogoutButton from './logout';
 import { useAuth0 } from "@auth0/auth0-react";
@@ -27,13 +28,13 @@ const Header = () => {
             </Box>
             <hr style={{ width: 1400 }}/>
             <Box sx={{ display: 'flex', justifyContent: 'center' }}>    
-                <Link href='/profile' sx={{ marginRight: 5 }}>Profile</Link>
-                <Link href='/reservation' sx={{ marginRight: 5 }}>Reservation</Link>
-                <Link href='/' sx={{ marginRight: 5 }}>Placeholder</Link>
-                <Link href='/' sx={{ marginRight: 5 }}>Placeholder</Link>
-                <Link href='/' sx={{ marginRight: 5 }}>Placeholder</Link>
-                <Link href='/' sx={{ marginRight: 5 }}>Placeholder</Link>
-                <Link href='/'>Placeholder</Link>
+                <Button href='/' sx={{ marginRight: 5 }} startIcon={<HomeOutlinedIcon />}>Home</Button>
+                <Button href='/reservation' sx={{ marginRight: 5 }}>Reservation</Button>
+                <Button href='/profile' sx={{ marginRight: 5 }}>Profile</Button>
+                <Button href='/about' sx={{ marginRight: 5 }}>About</Button>
+                <Button href='https://github.com/sundehakon/Hotell-React' target='_blank' sx={{ marginRight: 5 }}>GitHub</Button>
+                <Button href='https://www.notion.so/Hotell-dokumentasjon-e2c564feff004515b222ff06fab6efdb?pvs=4' target='_blank' sx={{ marginRight: 5 }}>Documentation</Button>
+                <Button href='/'>Placeholder</Button>
             </Box>
         </Box>
     );
