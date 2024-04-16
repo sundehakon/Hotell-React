@@ -14,7 +14,7 @@ const Header = () => {
     return (
         <Box sx={{ textAlign: 'center' }}>
             <Box sx={{ display: 'flex', flexDirection: 'row' }}>
-                <Typography variant='h5' gutterBottom marginTop={3} sx={{ marginLeft: 100 }}>
+                <Typography variant='h5' gutterBottom marginTop={3} sx={{ marginLeft: 99 }}>
                     Havblikk
                 </Typography>
                 <Box sx={{ marginLeft: 'auto', marginRight: 20, marginTop: 3 }}>
