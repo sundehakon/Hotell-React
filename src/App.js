@@ -1,19 +1,18 @@
 import './App.css';
 import { Route, Routes, BrowserRouter } from 'react-router-dom';
-import RoomForm from './components/room';
 import Home from './components/Home';
 import NotFound from './components/NotFound';
 import Profile from './components/Profile';
 import ReservationForm from './components/room';
 import { ThemeProvider } from '@mui/material/styles';
 import theme from './theme';
-import SideNav from './components/SideNav';
+import Header from './components/header';
 
 function App() {
   return (
     <ThemeProvider theme={theme}>
       <BrowserRouter>
-        <SideNav />
+      <Header />
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/reservation' element={
