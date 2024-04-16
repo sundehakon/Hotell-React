@@ -41,7 +41,7 @@ const ReservationForm = () => {
             </Typography>
             <form onSubmit={handleSubmit}>
                 <Grid container spacing={2}>
-                    <Grid item xs={6}>
+                    <Grid item xs={9} sx={{ marginLeft: 5 }}>
                     <InputLabel>Check-in Date</InputLabel>
                         <TextField
                             fullWidth
@@ -53,7 +53,7 @@ const ReservationForm = () => {
                             required
                         />
                     </Grid>
-                    <Grid item xs={6}>
+                    <Grid item xs={9} sx={{ marginLeft: 5 }}>
                         <InputLabel>Check-out Date</InputLabel>
                         <TextField
                             fullWidth
@@ -65,7 +65,7 @@ const ReservationForm = () => {
                             required
                         />
                     </Grid>
-                    <Grid item xs={6} sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column', marginLeft: 9 }}>
+                    <Grid item xs={9} sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column', marginLeft: 5 }}>
                     <InputLabel>Room Type</InputLabel>
                         <FormControl fullWidth>
                             <Select
