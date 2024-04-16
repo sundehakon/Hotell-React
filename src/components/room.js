@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Typography, Container, TextField, Button, Grid, FormControl, InputLabel, Select, MenuItem } from "@mui/material";
+import { Typography, Container, TextField, Button, Grid, FormControl, InputLabel, Select, MenuItem, Box, Card } from "@mui/material";
 import axios from "axios";
 import { useAuth0 } from "@auth0/auth0-react";
 
@@ -34,7 +34,8 @@ const ReservationForm = () => {
     };
 
     return (
-        <Container maxWidth="sm">
+        <Container maxWidth="xs" sx={{ textAlign: 'center' }}>
+            <Card sx={{ padding: 7 }}>
             <Typography variant="h4" gutterBottom>
                 Reservation Form
             </Typography>
@@ -64,15 +65,15 @@ const ReservationForm = () => {
                             required
                         />
                     </Grid>
-                    <Grid item xs={6}>
+                    <Grid item xs={6} sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column', marginLeft: 9 }}>
+                    <InputLabel>Room Type</InputLabel>
                         <FormControl fullWidth>
-                            <InputLabel id="room-type-label">Room Type</InputLabel>
                             <Select
-                                label="room-type-label"
-                                id="room-type-select"
+                                id="room-type-select"   
                                 name="roomType"
                                 value={formData.roomType}
                                 onChange={handleInputChange}
+                                sx={{ width: '100%' }}
                             >
                                 <MenuItem value={'family'}>Family</MenuItem>
                                 <MenuItem value={'double'}>Double</MenuItem>
@@ -82,10 +83,13 @@ const ReservationForm = () => {
                         </FormControl>
                     </Grid>
                 </Grid>
-                <Button type="submit" variant="contained" color="primary">
-                    Submit
-                </Button>
+                <Box sx={{ marginTop: 3 }}>
+                    <Button type="submit" variant="contained" color="primary">
+                        Submit
+                    </Button>
+                </Box>
             </form>
+            </Card>
         </Container>
     );
 };
