@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Typography, Container, TextField, Button, Grid, FormControl, InputLabel, Select, MenuItem, Box, Card } from "@mui/material";
+import { Typography, Container, TextField, Button, Grid, FormControl, InputLabel, Select, MenuItem, Box, Paper } from "@mui/material";
 import axios from "axios";
 import { useAuth0 } from "@auth0/auth0-react";
 
@@ -35,7 +35,7 @@ const ReservationForm = () => {
 
     return (
         <Container maxWidth="xs" sx={{ textAlign: 'center' }}>
-            <Card sx={{ padding: 7 }}>
+            <Paper sx={{ padding: 7 }}>
             <Typography variant="h4" gutterBottom>
                 Reservation Form
             </Typography>
@@ -89,7 +89,7 @@ const ReservationForm = () => {
                     </Button>
                 </Box>
             </form>
-            </Card>
+            </Paper>
         </Container>
     );
 };
