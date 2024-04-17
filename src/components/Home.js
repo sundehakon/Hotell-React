@@ -14,7 +14,7 @@ const Home = () => {
             <CardMedia
               component="img"
               style={{ height: 200, objectFit: 'cover' }}
-              image='/room-photos/family.jpg'
+              image='/hotel-photos/room-with-view.webp'
               alt="Family Room"
             />
           </Card>
@@ -24,7 +24,7 @@ const Home = () => {
             <CardMedia
               component="img"
               style={{ height: 200, objectFit: 'cover' }}
-              image='/room-photos/double.jpg'
+              image='/hotel-photos/hotel-sign.jpeg'
               alt="Double Room"
             />
           </Card>
@@ -34,7 +34,7 @@ const Home = () => {
             <CardMedia
               component="img"
               style={{ height: 200, objectFit: 'cover' }}
-              image='/room-photos/single.jpg'
+              image='/hotel-photos/lobby.jpeg'
               alt="Single Room"
             />
           </Card>

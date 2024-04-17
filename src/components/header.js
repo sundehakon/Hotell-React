@@ -9,7 +9,7 @@ import { useAuth0 } from "@auth0/auth0-react";
 import '@fontsource/roboto/300.css';
 
 const Header = () => {
-    const {user, isLoading} = useAuth0();
+    const {user, isLoading } = useAuth0();
 
     return (
         <Box sx={{ textAlign: 'center' }}>
@@ -26,7 +26,7 @@ const Header = () => {
                     )}
                 </Box>
             </Box>
-            <hr style={{ width: 1400 }}/>
+            <hr style={{ width: 1360 }}/>
             <Box sx={{ display: 'flex', justifyContent: 'center' }}>    
                 <Button href='/' sx={{ marginRight: 5 }} startIcon={<HomeOutlinedIcon />}>Home</Button>
                 <Button href='/reservation' sx={{ marginRight: 5 }}>Reservation</Button>

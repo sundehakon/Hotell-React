@@ -76,7 +76,7 @@ const Profile = () => {
                     <Typography variant='h3'>Welcome, {user.nickname}</Typography>
                     <Typography>E-mail: {user.email}</Typography>
                 </Card>
-                {orders && (
+                {orders.length > 0 && (
                 <Card>
                     <Typography variant='h4'>Orders</Typography>
                     <ul>
@@ -93,7 +93,7 @@ const Profile = () => {
                         Cancel
                     </Button>
                 </Card>
-                )};
+                )}
             </Grid>
             <Snackbar
                 open={open}
@@ -108,7 +108,7 @@ const Profile = () => {
         return (
             <Box sx={{ textAlign: 'center', marginTop: 30 }}>
                 <Typography variant='h5'>
-                    You aren't logged in yet...
+                    Please log in to view your profile
                 </Typography>
             </Box>
         );

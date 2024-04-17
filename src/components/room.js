@@ -4,7 +4,7 @@ import axios from "axios";
 import { useAuth0 } from "@auth0/auth0-react";
 
 const ReservationForm = () => {
-    const { user } = useAuth0();
+    const { user, isAuthenticated, loginWithPopup } = useAuth0();
     const [formData, setFormData] = useState({
         userId: user?.sub,
         checkInDate: '',
@@ -20,6 +20,9 @@ const ReservationForm = () => {
     const handleSubmit = async (event) => {
         event.preventDefault();
         try {
+            if (!isAuthenticated) {
+
+            }
             const dataToSend = { ...formData, userId: user?.sub };
             const response = await axios.post('http://localhost:8080/api/Orders', dataToSend);
             setFormData({
@@ -37,7 +40,7 @@ const ReservationForm = () => {
         <Container maxWidth="xs" sx={{ textAlign: 'center' }}>
             <Paper sx={{ padding: 7 }}>
             <Typography variant="h4" gutterBottom>
-                Reservation Form
+                Reserve room
             </Typography>
             <form onSubmit={handleSubmit}>
                 <Grid container spacing={2}>
