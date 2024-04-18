@@ -15,7 +15,7 @@ const Header = () => {
         <Box sx={{ textAlign: 'center' }}>
             <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 2 }}>
                 <Box sx={{ display: 'flex', alignItems: 'center' }}>
-                <Box sx={{ marginTop: 4, display: 'flex', flexDirection: 'row', paddingLeft: 20 }}>
+                <Box sx={{ marginTop: 2, display: 'flex', flexDirection: 'row', paddingLeft: 20 }}>
                     {user && (
                         <img src={user.picture} alt='Profile' style={{ width: 32, height: 32, borderRadius: '50%', marginRight: 8 }} />
                     )}
@@ -25,9 +25,12 @@ const Header = () => {
                             {user.nickname}
                         </Typography>
                     )}
+                    {!user && ( 
+                        <div style={{ width: 110, height: 24 }} />
+                    )}
                     </Box>
                 </Box>
-                <Typography variant='h5' gutterBottom marginTop={3} sx={{ marginLeft: 67  }}>
+                <Typography variant='h5' gutterBottom marginTop={3} sx={{ position: 'absolute', top: 0, left: '48%' }}>
                     Havblikk
                 </Typography>
                 </Box>
