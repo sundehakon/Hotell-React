@@ -9,14 +9,24 @@ import { useAuth0 } from "@auth0/auth0-react";
 import '@fontsource/roboto/300.css';
 
 const Header = () => {
-    const {user, isLoading } = useAuth0();
+    const {user, isLoading, isAuthenticated } = useAuth0();
 
     return (
         <Box sx={{ textAlign: 'center' }}>
-            <Box sx={{ display: 'flex', flexDirection: 'row' }}>
+            <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 2 }}>
+                <Box sx={{ display: 'flex', alignItems: 'center' }}>
+                {user && (
+                    <img src={user.picture} alt='Profile' style={{ width: 32, height: 32, borderRadius: '50%', marginRight: 8 }} />
+                )}
+                {user && (
+                    <Typography variant='body1' sx={{ marginRight: 2 }}>
+                        {user.nickname}
+                    </Typography>
+                )}
                 <Typography variant='h5' gutterBottom marginTop={3} sx={{ marginLeft: 99 }}>
                     Havblikk
                 </Typography>
+                </Box>
                 <Box sx={{ marginLeft: 'auto', marginRight: 20, marginTop: 3 }}>
                     {!isLoading && !user && (
                     <LoginButton />
