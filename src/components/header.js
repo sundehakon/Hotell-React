@@ -9,7 +9,7 @@ import { useAuth0 } from "@auth0/auth0-react";
 import '@fontsource/roboto/300.css';
 
 const Header = () => {
-    const {user, isLoading, isAuthenticated } = useAuth0();
+    const {user, isLoading } = useAuth0();
 
     return (
         <Box sx={{ textAlign: 'center' }}>
