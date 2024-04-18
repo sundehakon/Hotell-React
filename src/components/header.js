@@ -15,15 +15,19 @@ const Header = () => {
         <Box sx={{ textAlign: 'center' }}>
             <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 2 }}>
                 <Box sx={{ display: 'flex', alignItems: 'center' }}>
-                {user && (
-                    <img src={user.picture} alt='Profile' style={{ width: 32, height: 32, borderRadius: '50%', marginRight: 8 }} />
-                )}
-                {user && (
-                    <Typography variant='body1' sx={{ marginRight: 2 }}>
-                        {user.nickname}
-                    </Typography>
-                )}
-                <Typography variant='h5' gutterBottom marginTop={3} sx={{ marginLeft: 99 }}>
+                <Box sx={{ marginTop: 4, display: 'flex', flexDirection: 'row', paddingLeft: 20 }}>
+                    {user && (
+                        <img src={user.picture} alt='Profile' style={{ width: 32, height: 32, borderRadius: '50%', marginRight: 8 }} />
+                    )}
+                    <Box sx={{ marginTop: 0.5 }}>
+                    {user && (
+                        <Typography variant='body1' sx={{ marginRight: 2 }}>
+                            {user.nickname}
+                        </Typography>
+                    )}
+                    </Box>
+                </Box>
+                <Typography variant='h5' gutterBottom marginTop={3} sx={{ marginLeft: 67  }}>
                     Havblikk
                 </Typography>
                 </Box>
