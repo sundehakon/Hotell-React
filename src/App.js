@@ -16,11 +16,7 @@ function App() {
       <BrowserRouter>
       <Header />
         <Routes>
-          <Route path='/test-environment' element={
-          <Box sx={{ width: 1000, height: 900, display: 'flex', alignItems: 'center', justifyContent: 'center', marginLeft: 40, zoom: '1' }}>
-            <Spline scene='https://prod.spline.design/aJK3vLcIjRFcByVZ/scene.splinecode' />
-          </Box>
-          } />
+          <Route path='/test-environment' element={<div>Test Environment</div>} />
           <Route path='/' 
           element={
             <div>
