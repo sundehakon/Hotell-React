@@ -4,6 +4,8 @@
 /node_modules
 /.pnp
 .pnp.js
+# 3D model
+/Boutique Hotel
 
 # testing
 /coverage
