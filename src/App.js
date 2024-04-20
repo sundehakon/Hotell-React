@@ -5,8 +5,10 @@ import NotFound from './components/NotFound';
 import Profile from './components/Profile';
 import ReservationForm from './components/room';
 import { ThemeProvider } from '@mui/material/styles';
+import { Box } from '@mui/material';
 import theme from './theme';
 import Header from './components/header';
+import Spline from '@splinetool/react-spline';
 
 function App() {
   return (
@@ -14,7 +16,20 @@ function App() {
       <BrowserRouter>
       <Header />
         <Routes>
-          <Route path='/' element={<Home />} />
+          <Route path='/test-environment' element={
+          <Box sx={{ width: 1000, height: 900, display: 'flex', alignItems: 'center', justifyContent: 'center', marginLeft: 40, zoom: '1' }}>
+            <Spline scene='https://prod.spline.design/aJK3vLcIjRFcByVZ/scene.splinecode' />
+          </Box>
+          } />
+          <Route path='/' 
+          element={
+            <div>
+              <Home />
+              <Box sx={{ width: 1000, height: 900, display: 'flex', alignItems: 'center', justifyContent: 'center', marginLeft: 40, zoom: '1' }}>
+                <Spline scene='https://prod.spline.design/aJK3vLcIjRFcByVZ/scene.splinecode' />
+              </Box>
+            </div>
+            } />
           <Route path='/reservation' element={
           <div className='room-form-container'>
             <ReservationForm />
