@@ -58,7 +58,12 @@ const Home = () => {
       </Box>
     </Box>
     <Box sx={{ textAlign: 'center' }}>
-      <Button href='/reservation'>Reserve Your Vacation Now!</Button>
+      <Typography variant='h4' sx={{ marginTop: 150 }}>What Are You Waiting For?</Typography>
+      <Button href='/reservation' variant='contained' sx={{ marginTop: 10}}>Reserve Your Dream Vacation Now!</Button>
+    </Box>
+    <Box sx={{ backgroundColor: '#788496', position: 'absolute', left: 0, right: 0, marginTop: 20, height: 400 }}>
+      <Typography variant='h4' sx={{ textAlign: 'center' }}>Contact Us</Typography>
+      <Typography variant='h6' sx={{ textAlign: 'center' }}>Email: </Typography>
     </Box>
     </Container>
   );
