@@ -25,7 +25,7 @@ const ReservationForm = () => {
                 await loginWithRedirect();
             }
             const dataToSend = { ...formData, userId: user?.sub };
-            const response = await axios.post('http://localhost:8080/api/Orders', dataToSend);
+            await axios.post('http://localhost:8080/api/Orders', dataToSend);
             setFormData({
                 userId: '',
                 checkInDate: '',
