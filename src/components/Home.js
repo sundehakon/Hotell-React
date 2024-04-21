@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Grid, Card, CardMedia, Container, Typography, Box, Button } from '@mui/material';
 import '@fontsource/roboto/300.css';
 import Spline from '@splinetool/react-spline';
@@ -58,7 +58,7 @@ const Home = () => {
       </Box>
     </Box>
     <Box sx={{ textAlign: 'center' }}>
-      <Typography variant='h4' sx={{ marginTop: 150 }}>What Are You Waiting For?</Typography>
+      <Typography variant='h4' sx={{ marginTop: 160 }}>What Are You Waiting For?</Typography>
       <Button href='/reservation' variant='contained' sx={{ marginTop: 10 }} size='large'>Reserve Your Dream Vacation Now!</Button>
     </Box>
     <Box sx={{ backgroundColor: '#788496', position: 'absolute', left: 0, right: 0, marginTop: 20, height: 400 }}>

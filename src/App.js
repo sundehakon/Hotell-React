@@ -10,21 +10,16 @@ import Header from './components/header';
 
 
 function App() {
-
-  const scrollToBottom = () => {
-    window.scrollTo({ top: document.documentElement.scrollHeight, behavior: 'smooth' });
-  }
-
   return (
     <ThemeProvider theme={theme}>
       <BrowserRouter>
-      <Header scrollToBottom={scrollToBottom}/>
+      <Header />
         <Routes>
           <Route path='/test-environment' element={<div>Test Environment</div>} />
           <Route path='/' 
           element={
             <div>
-              <Home scrollToBottom={scrollToBottom}/>
+              <Home />
             </div>
             } />
           <Route path='/reservation' element={

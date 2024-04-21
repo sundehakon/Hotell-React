@@ -11,6 +11,10 @@ import '@fontsource/roboto/300.css';
 const Header = () => {
     const {user, isLoading } = useAuth0();
 
+    const scrollToBottom = () => {
+        window.scrollTo(0, document.body.scrollHeight)
+    }
+
     return (
         <Box sx={{ textAlign: 'center' }}>
             <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 2 }}>
@@ -51,7 +55,7 @@ const Header = () => {
                 <Button href='/' sx={{ marginRight: 5 }}>Placeholder</Button>
                 <Button href='https://github.com/sundehakon/Hotell-React' target='_blank' sx={{ marginRight: 5 }}>GitHub</Button>
                 <Button href='https://www.notion.so/Hotell-dokumentasjon-e2c564feff004515b222ff06fab6efdb?pvs=4' target='_blank' sx={{ marginRight: 5 }}>Documentation</Button>
-                <Button>Contact Us</Button>
+                <Button onClick={scrollToBottom}>Contact Us</Button>
             </Box>
         </Box>
     );
