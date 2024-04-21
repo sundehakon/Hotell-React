@@ -41,13 +41,13 @@ const Home = () => {
           </Card>
         </Grid>
       </Grid>
-    <Box sx={{ backgroundColor: '#788496', position: 'absolute', left: 0, right: 0, marginTop: 20, height: 370 }}>
-        <Typography variant="h3" sx={{ textAlign: 'center', marginTop: 10, color: 'white' }}>Welcome to Havblikk</Typography>
+    <Box sx={{ backgroundColor: '#788496', position: 'absolute', left: 0, right: 0, marginTop: 20, height: 500 }}>
+        <Typography variant="h3" sx={{ textAlign: 'center', marginTop: 17, color: 'white' }}>Welcome to Havblikk</Typography>
         <Typography variant="h5" sx={{ textAlign: 'center', marginTop: 5, color: 'white' }}>The place where you can relax and enjoy the beautiful view of the ocean</Typography>
         <Typography variant="h5" sx={{ textAlign: 'center', marginTop: 5, color: 'white' }}>We offer a variety of rooms to suit your needs, whether you're traveling alone or with family</Typography>
     </Box>
     <Box>
-        <Typography variant="h4" sx={{ textAlign: 'center', marginTop: 75 }}>We Take Pride in Quality</Typography>
+        <Typography variant="h4" sx={{ textAlign: 'center', marginTop: 90 }}>We Take Pride in Quality</Typography>
         <img src='/hotel-photos/trip-advisor-2022.webp' alt='Trip Advisor' style={{ width: 325, height: 250, display: 'block', marginLeft: 'auto', marginTop: 100 }} />
         <img src='/hotel-photos/2020-travellers-choice.png' alt='Trip Advisor' style={{ width: 325, height: 250, display: 'block', marginRight: 'auto', marginTop: -260 }} />
     </Box>
@@ -67,8 +67,8 @@ const Home = () => {
       }} size='large'>Reserve Your Dream Vacation Now!</Button>
     </Box>
     <Box sx={{ backgroundColor: '#788496', position: 'absolute', left: 0, right: 0, marginTop: 20, height: 400 }}>
-      <Typography variant='h4' sx={{ textAlign: 'center', color: 'white', marginTop: 12 }}>Contact Us</Typography>
-      <Typography variant='h6' sx={{ textAlign: 'center', color: 'white', marginTop: 2 }}>
+      <Typography variant='h3' sx={{ textAlign: 'center', color: 'white', marginTop: 12 }}>Contact Us</Typography>
+      <Typography variant='h6' sx={{ textAlign: 'center', color: 'white', marginTop: 3 }}>
         <Box sx={{ fontWeight: 'bolder', display: 'inline' }}>Email:</Box> contact@havblikk.com
         <br />
         <Box sx={{ marginTop: 1 }}>
