@@ -59,11 +59,21 @@ const Home = () => {
     </Box>
     <Box sx={{ textAlign: 'center' }}>
       <Typography variant='h4' sx={{ marginTop: 150 }}>What Are You Waiting For?</Typography>
-      <Button href='/reservation' variant='contained' sx={{ marginTop: 10}}>Reserve Your Dream Vacation Now!</Button>
+      <Button href='/reservation' variant='contained' sx={{ marginTop: 10 }} size='large'>Reserve Your Dream Vacation Now!</Button>
     </Box>
     <Box sx={{ backgroundColor: '#788496', position: 'absolute', left: 0, right: 0, marginTop: 20, height: 400 }}>
-      <Typography variant='h4' sx={{ textAlign: 'center' }}>Contact Us</Typography>
-      <Typography variant='h6' sx={{ textAlign: 'center' }}>Email: </Typography>
+      <Typography variant='h4' sx={{ textAlign: 'center', color: 'white', marginTop: 12 }}>Contact Us</Typography>
+      <Typography variant='h6' sx={{ textAlign: 'center', color: 'white', marginTop: 2 }}>
+        <Box sx={{ fontWeight: 'bolder', display: 'inline' }}>Email:</Box> contact@havblikk.com
+        <br />
+        <Box sx={{ marginTop: 1 }}>
+          <Box sx={{ fontWeight: 'bolder', display: 'inline' }}>Phone:</Box> +47 923 56 123
+        </Box>
+        <br />
+        <Box sx={{ marginTop: -3 }}>
+          <Box sx={{ fontWeight: 'bolder', display: 'inline' }}>Address:</Box> Havblikkveien 1, 1234 Havblikk
+        </Box>
+      </Typography>
     </Box>
     </Container>
   );
