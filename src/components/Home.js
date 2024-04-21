@@ -59,7 +59,12 @@ const Home = () => {
     </Box>
     <Box sx={{ textAlign: 'center' }}>
       <Typography variant='h4' sx={{ marginTop: 160 }}>What Are You Waiting For?</Typography>
-      <Button href='/reservation' variant='contained' sx={{ marginTop: 10 }} size='large'>Reserve Your Dream Vacation Now!</Button>
+      <Button href='/reservation' variant='outlined' sx={{ marginTop: 10, 
+      '&:hover': { transform: 'scale(1.05)',
+          boxShadow: '0px 8px 16px rgba(0, 0, 0, 0.1)',
+          transition: 'transform 0.3s ease, box-shadow 0.3s ease', 
+        } 
+      }} size='large'>Reserve Your Dream Vacation Now!</Button>
     </Box>
     <Box sx={{ backgroundColor: '#788496', position: 'absolute', left: 0, right: 0, marginTop: 20, height: 400 }}>
       <Typography variant='h4' sx={{ textAlign: 'center', color: 'white', marginTop: 12 }}>Contact Us</Typography>
