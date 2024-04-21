@@ -1,9 +1,15 @@
 import React, { useEffect } from 'react';
-import { Grid, Card, CardMedia, Container, Typography, Box, Button } from '@mui/material';
+import { Grid, Card, CardMedia, Container, Typography, Box, Button, IconButton } from '@mui/material';
 import '@fontsource/roboto/300.css';
 import Spline from '@splinetool/react-spline';
+import ArrowUpwardIcon from '@mui/icons-material/ArrowUpward';
 
 const Home = () => {
+
+  const scrollToTop = () => {
+    window.scrollTo(0, 0);
+  }
+
   return (
     <Container maxWidth="md">
         <Typography sx={{ textAlign: 'center', marginTop: 10, fontSize: 20}}>
@@ -51,11 +57,12 @@ const Home = () => {
         <img src='/hotel-photos/trip-advisor-2022.webp' alt='Trip Advisor' style={{ width: 325, height: 250, display: 'block', marginLeft: 380, marginTop: 100 }} />
         <img src='/hotel-photos/2020-travellers-choice.png' alt='Trip Advisor' style={{ width: 325, height: 250, display: 'block', marginLeft: 130, marginTop: -260 }} />
     </Box>
-    <Box sx={{ backgroundColor: '#788496', position: 'absolute', left: 0, right: 0, marginTop: 15, height: 1000 }}>
+    <Box sx={{ backgroundColor: '#788496', position: 'absolute', left: 0, right: 0, marginTop: 15, height: 1030 }}>
       <Typography sx={{ textAlign: 'center', color: 'white', marginTop: 5 }} variant='h4'>Enjoy a 3D Model of The "Double" Room</Typography>
       <Box sx={{ width: 1000, height: 900, display: 'flex', alignItems: 'center', justifyContent: 'center', marginLeft: 45, zoom: '1' }}>
         <Spline scene='https://prod.spline.design/aJK3vLcIjRFcByVZ/scene.splinecode' />
       </Box>
+      <Typography sx={{ textAlign: 'center', color: 'white' }}>PS: Spin Me Around...</Typography>
     </Box>
     <Box sx={{ textAlign: 'center' }}>
       <Typography variant='h4' sx={{ marginTop: 160 }}>What Are You Waiting For?</Typography>
@@ -66,7 +73,7 @@ const Home = () => {
         } 
       }} size='large'>Reserve Your Dream Vacation Now!</Button>
     </Box>
-    <Box sx={{ backgroundColor: '#788496', position: 'absolute', left: 0, right: 0, marginTop: 20, height: 400 }}>
+    <Box sx={{ backgroundColor: '#788496', position: 'absolute', left: 0, right: 0, marginTop: 20, height: 450 }}>
       <Typography variant='h3' sx={{ textAlign: 'center', color: 'white', marginTop: 12 }}>Contact Us</Typography>
       <Typography variant='h6' sx={{ textAlign: 'center', color: 'white', marginTop: 3 }}>
         <Box sx={{ fontWeight: 'bolder', display: 'inline' }}>Email:</Box> contact@havblikk.com
@@ -79,6 +86,13 @@ const Home = () => {
           <Box sx={{ fontWeight: 'bolder', display: 'inline' }}>Address:</Box> Havblikkveien 1, 1234 Havblikk
         </Box>
       </Typography>
+      <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', marginTop: 5 }}>
+        <Card sx={{ width: 40 }}>
+          <IconButton onClick={scrollToTop}>
+            <ArrowUpwardIcon />
+          </IconButton>
+        </Card>
+      </Box>
     </Box>
     </Container>
   );
