@@ -42,14 +42,14 @@ const Home = () => {
         </Grid>
       </Grid>
     <Box sx={{ backgroundColor: '#788496', position: 'absolute', left: 0, right: 0, marginTop: 20, height: 500 }}>
-        <Typography variant="h3" sx={{ textAlign: 'center', marginTop: 17, color: 'white' }}>Welcome to Havblikk</Typography>
+        <Typography variant="h3" sx={{ textAlign: 'center', marginTop: 17, color: 'white' }}>Welcome to Havblikk!</Typography>
         <Typography variant="h5" sx={{ textAlign: 'center', marginTop: 5, color: 'white' }}>The place where you can relax and enjoy the beautiful view of the ocean</Typography>
         <Typography variant="h5" sx={{ textAlign: 'center', marginTop: 5, color: 'white' }}>We offer a variety of rooms to suit your needs, whether you're traveling alone or with family</Typography>
     </Box>
     <Box>
         <Typography variant="h4" sx={{ textAlign: 'center', marginTop: 90 }}>We Take Pride in Quality</Typography>
-        <img src='/hotel-photos/trip-advisor-2022.webp' alt='Trip Advisor' style={{ width: 325, height: 250, display: 'block', marginLeft: 'auto', marginTop: 100 }} />
-        <img src='/hotel-photos/2020-travellers-choice.png' alt='Trip Advisor' style={{ width: 325, height: 250, display: 'block', marginRight: 'auto', marginTop: -260 }} />
+        <img src='/hotel-photos/trip-advisor-2022.webp' alt='Trip Advisor' style={{ width: 325, height: 250, display: 'block', marginLeft: 380, marginTop: 100 }} />
+        <img src='/hotel-photos/2020-travellers-choice.png' alt='Trip Advisor' style={{ width: 325, height: 250, display: 'block', marginLeft: 130, marginTop: -260 }} />
     </Box>
     <Box sx={{ backgroundColor: '#788496', position: 'absolute', left: 0, right: 0, marginTop: 15, height: 1000 }}>
       <Typography sx={{ textAlign: 'center', color: 'white', marginTop: 5 }} variant='h4'>Enjoy a 3D Model of The "Double" Room</Typography>
