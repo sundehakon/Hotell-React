@@ -93,6 +93,9 @@ const Home = () => {
           </IconButton>
         </Card>
       </Box>
+      <Box sx={{ marginTop: 3 }}>
+        <Typography sx={{ textAlign: 'center', color: 'white' }}>Copyright by creator Håkon Sunde (2023)</Typography>
+      </Box>
     </Box>
     </Container>
   );

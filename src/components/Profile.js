@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useAuth0 } from '@auth0/auth0-react';
 import { Typography, Box, Card, Grid, Button, IconButton, Snackbar, List, ListItem } from '@mui/material';
+import LoginButton from './login';
 import CloseIcon from '@mui/icons-material/Close';
 import axios from 'axios';
 
@@ -108,8 +109,11 @@ const Profile = () => {
         return (
             <Box sx={{ textAlign: 'center', marginTop: 30 }}>
                 <Typography variant='h5'>
-                    Please log in to view your profile
+                    Please Log In to View Your Profile
                 </Typography>
+                <Box sx={{ marginTop: 4 }}>
+                    <LoginButton />
+                </Box>
             </Box>
         );
     }
