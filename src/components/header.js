@@ -51,7 +51,7 @@ const Header = () => {
                 <Button href='/' sx={{ marginRight: 5 }}>Placeholder</Button>
                 <Button href='https://github.com/sundehakon/Hotell-React' target='_blank' sx={{ marginRight: 5 }}>GitHub</Button>
                 <Button href='https://www.notion.so/Hotell-dokumentasjon-e2c564feff004515b222ff06fab6efdb?pvs=4' target='_blank' sx={{ marginRight: 5 }}>Documentation</Button>
-                <Button href='/about'>About</Button>
+                <Button>Contact Us</Button>
             </Box>
         </Box>
     );
