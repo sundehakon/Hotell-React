@@ -78,19 +78,18 @@ const Profile = () => {
                     <Typography>E-mail: {user.email}</Typography>
                 </Card>
                 {orders.length > 0 && (
-                <Card>
-                    <Typography variant='h4'>Orders</Typography>
+                <Card sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column' }}>
+                    <Typography variant='h4' sx={{ marginTop: 3 }}>Orders</Typography>
                     <ul>
                         {orders.map((order, index) => (
                             <List key={index}>
-                                <ListItem>User ID: {order.userId}</ListItem>
                                 <ListItem>Check-in Date: {order.checkInDate}</ListItem>
                                 <ListItem>Check-out Date: {order.checkOutDate}</ListItem>
                                 <ListItem>Room Type: {order.roomType}</ListItem>
                             </List>
                         ))}
                     </ul>
-                    <Button onClick={handleDelete} variant="contained" color="error">
+                    <Button onClick={handleDelete} variant="contained" color="error" sx={{ marginBottom: 3 }}>
                         Cancel
                     </Button>
                 </Card>
