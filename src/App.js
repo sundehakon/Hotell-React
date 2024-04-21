@@ -5,7 +5,7 @@ import NotFound from './components/NotFound';
 import Profile from './components/Profile';
 import ReservationForm from './components/room';
 import { ThemeProvider } from '@mui/material/styles';
-import { Box } from '@mui/material';
+import { Box, Typography } from '@mui/material';
 import theme from './theme';
 import Header from './components/header';
 import Spline from '@splinetool/react-spline';
@@ -21,7 +21,8 @@ function App() {
           element={
             <div>
               <Home />
-              <Box sx={{ backgroundColor: '#1C232B', position: 'absolute', left: 0, right: 0, marginTop: 15, height: 800 }}>
+              <Box sx={{ backgroundColor: '#788496', position: 'absolute', left: 0, right: 0, marginTop: 15, height: 1000 }}>
+                <Typography sx={{ textAlign: 'center', color: 'white', marginTop: 5 }} variant='h4'>Enjoy a 3D Model of The "Double" Room</Typography>
                 <Box sx={{ width: 1000, height: 900, display: 'flex', alignItems: 'center', justifyContent: 'center', marginLeft: 45, zoom: '1' }}>
                   <Spline scene='https://prod.spline.design/aJK3vLcIjRFcByVZ/scene.splinecode' />
                 </Box>
