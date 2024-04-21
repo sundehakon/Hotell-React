@@ -83,9 +83,15 @@ const Profile = () => {
                     <ul>
                         {orders.map((order, index) => (
                             <List key={index}>
-                                <ListItem>Check-in Date: {order.checkInDate}</ListItem>
-                                <ListItem>Check-out Date: {order.checkOutDate}</ListItem>
-                                <ListItem>Room Type: {order.roomType}</ListItem>
+                                <ListItem>
+                                    <Box sx={{ fontWeight: 'bolder' }}>Check-in Date:</Box>&nbsp;{order.checkInDate}
+                                </ListItem>
+                                <ListItem>
+                                    <Box sx={{ fontWeight: 'bolder' }}>Check-out Date:</Box>&nbsp;{order.checkOutDate}
+                                </ListItem>
+                                <ListItem>
+                                    <Box sx={{ fontWeight: 'bolder' }}>Room Type:</Box>&nbsp;{order.roomType}
+                                </ListItem>
                             </List>
                         ))}
                     </ul>
