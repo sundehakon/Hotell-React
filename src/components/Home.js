@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Grid, Card, CardMedia, Container, Typography, Box, Button, IconButton } from '@mui/material';
 import '@fontsource/roboto/300.css';
 import Spline from '@splinetool/react-spline';

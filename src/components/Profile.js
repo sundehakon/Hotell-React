@@ -28,7 +28,7 @@ const Profile = () => {
 
     const handleDelete = async () => {
         try {
-            const response = await axios.delete(`http://localhost:8080/api/Orders/${orders[0]._id}`);
+            await axios.delete(`http://localhost:8080/api/Orders/${orders[0]._id}`);
             setOpen(true);
         } catch (error) {
             console.error('Error deleting order:', error);
