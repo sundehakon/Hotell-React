@@ -74,7 +74,9 @@ const Profile = () => {
                 marginLeft={45}
             >
                 <Card sx={{ width: 500 }}>
-                    {user.picture && <img src={user.picture} alt={user.name} />}
+                    <Box sx={{ margin: 2 }}>
+                        {user.picture && <img src={user.picture} alt={user.name} />}
+                    </Box>
                     <Typography variant='h3'>Welcome, {user.nickname}</Typography>
                     <Typography>E-mail: {user.email}</Typography>
                     {user.email_verified === true ? (
@@ -84,7 +86,7 @@ const Profile = () => {
                     )}
                 </Card>
                 {orders.length > 0 && (
-                <Card sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column' }}>
+                <Card sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column', width: 350 }}>
                     <Typography variant='h4' sx={{ marginTop: 3 }}>Orders</Typography>
                     <ul>
                         {orders.map((order, index) => (
