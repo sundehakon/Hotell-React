@@ -4,6 +4,7 @@ const express = require('express');
 const cors = require('cors');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
+const jwt = require('jsonwebtoken');
 
 const app = express();
 app.use(cors());
@@ -11,6 +12,26 @@ app.use(bodyParser.json());
 
 mongoose.connect(process.env.MONGO_URI, {});
 const db = mongoose.connection;
+
+const authenticateToken = (req, res, next) => {
+    const authHeader = req.headers['authorization'];
+    const token = authHeader && authHeader.split(' ')[1];
+
+    if (token == null) {
+        return res.sendStatus(401);
+    }
+
+    jwt.verify(token, process.env.ACCESS_TOKEN_SECRET, (err, user) => {
+        if (err) {
+            return res.sendStatus(403);
+        }
+        req.user = user;
+
+        const roles = user.roles;
+        console.log(roles);
+        next();
+    });
+};
 
 const reservationSchema = new mongoose.Schema({
     userId: String,
@@ -21,7 +42,7 @@ const reservationSchema = new mongoose.Schema({
 
 const Reservation = mongoose.model('Reservation', reservationSchema);
 
-app.post('/api/Orders', async (req, res) => {
+app.post('/api/Orders', authenticateToken, async (req, res) => {
     const { checkInDate, checkOutDate, roomType, userId } = req.body;
 
     const reservation = new Reservation({
@@ -39,7 +60,7 @@ app.post('/api/Orders', async (req, res) => {
     }
 });
 
-app.get('/api/Orders', async (req, res) => {
+app.get('/api/Orders', authenticateToken, async (req, res) => {
     try {
         const orders = await Reservation.find(); 
         res.status(200).json(orders);
@@ -49,7 +70,7 @@ app.get('/api/Orders', async (req, res) => {
     }
 });
 
-app.delete('/api/Orders/:orderId', async (req, res) => {
+app.delete('/api/Orders/:orderId', authenticateToken, async (req, res) => {
     const { orderId } = req.params;
 
     try {
