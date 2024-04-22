@@ -66,16 +66,22 @@ const Profile = () => {
             <Grid
                 container
                 spacing={0}
-                direction="column"
+                gap={8}
+                direction="row"
                 alignItems="center"
                 justify="center"
                 marginTop={20}
-                style={{ minHeight: '100vh' }}
+                marginLeft={45}
             >
                 <Card sx={{ width: 500 }}>
                     {user.picture && <img src={user.picture} alt={user.name} />}
                     <Typography variant='h3'>Welcome, {user.nickname}</Typography>
                     <Typography>E-mail: {user.email}</Typography>
+                    {user.email_verified === true ? (
+                        <Typography>Email verified: Yes</Typography>
+                    ) : (
+                        <Typography>Email verified: No</Typography>
+                    )}
                 </Card>
                 {orders.length > 0 && (
                 <Card sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column' }}>
