@@ -10,7 +10,6 @@ import '@fontsource/roboto/300.css';
 
 const Header = () => {
     const {user, isLoading } = useAuth0();
-
     const scrollToBottom = () => {
         window.scrollTo(0, document.body.scrollHeight)
     }
@@ -21,7 +20,9 @@ const Header = () => {
                 <Box sx={{ display: 'flex', alignItems: 'center' }}>
                 <Box sx={{ marginTop: 2, display: 'flex', flexDirection: 'row', paddingLeft: 20 }}>
                     {user && (
-                        <img src={user.picture} alt='Profile' style={{ width: 32, height: 32, borderRadius: '50%', marginRight: 8 }} />
+                        <a href='/profile'>
+                            <img src={user.picture} alt='Profile' style={{ width: 32, height: 32, borderRadius: '50%', marginRight: 8 }} />
+                        </a>
                     )}
                     <Box sx={{ marginTop: 0.5 }}>
                     {user && (
