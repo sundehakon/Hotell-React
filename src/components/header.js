@@ -17,7 +17,7 @@ const Header = () => {
     return (
         <Box sx={{ textAlign: 'center' }}>
             <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 2 }}>
-                <Box sx={{ display: 'flex', alignItems: 'center', marginLeft: 12 }}>
+                <Box sx={{ display: 'flex', alignItems: 'center', marginLeft: 12, marginTop: 1 }}>
                     {user && (
                         <a href='/profile'>
                             <img src={user.picture} alt='Profile' style={{ width: 32, height: 32, borderRadius: '50%', marginRight: 8 }} />
@@ -37,7 +37,7 @@ const Header = () => {
                 <Typography variant='h5' gutterBottom sx={{ fontWeight: 'bold', fontSize: '1.5rem', marginLeft: 'auto', marginRight: 'auto', marginTop: 2 }}>
                     Havblikk
                 </Typography>
-                <Box sx={{ display: 'flex', alignItems: 'center', marginRight: 12 }}>
+                <Box sx={{ display: 'flex', alignItems: 'center', marginRight: 12, marginTop: 1 }}>
                     {!isLoading && !user && (
                         <LoginButton />
                     )}
