@@ -51,7 +51,7 @@ const Header = () => {
                 <Button href='/' startIcon={<HomeOutlinedIcon />}>Home</Button>
                 <Button href='/reservation'>Reservation</Button>
                 <Button href='/profile'>Profile</Button>
-                <Button href='/'>Placeholder</Button>
+                <Button href='/*'>Placeholder</Button>
                 <Button href='https://github.com/sundehakon/Hotell-React' target='_blank' sx={{ marginRight: 2 }}>GitHub</Button>
                 <Button href='https://www.notion.so/Hotell-dokumentasjon-e2c564feff004515b222ff06fab6efdb?pvs=4' target='_blank'>Documentation</Button>
                 <Button onClick={scrollToBottom}>Contact Us</Button>
