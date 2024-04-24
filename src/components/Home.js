@@ -57,15 +57,18 @@ const Home = () => {
         <img src='/hotel-photos/trip-advisor-2022.webp' alt='Trip Advisor' style={{ width: 325, height: 250, display: 'block', marginLeft: 380, marginTop: 100 }} />
         <img src='/hotel-photos/2020-travellers-choice.png' alt='Trip Advisor' style={{ width: 325, height: 250, display: 'block', marginLeft: 130, marginTop: -260 }} />
     </Box>
-    <Box sx={{ backgroundColor: '#788496', position: 'absolute', left: 0, right: 0, marginTop: 15, height: 1030 }}>
-      <Typography sx={{ textAlign: 'center', color: 'white', marginTop: 5 }} variant='h4'>Enjoy a 3D Model of The "Double" Room</Typography>
-      <Box sx={{ width: 1000, height: 900, display: 'flex', alignItems: 'center', justifyContent: 'center', marginLeft: 45, zoom: '1' }}>
-        <Spline scene='https://prod.spline.design/aJK3vLcIjRFcByVZ/scene.splinecode' />
-      </Box>
-      <Typography sx={{ textAlign: 'center', color: 'white' }}>PS: Spin Me Around...</Typography>
-    </Box>
+    <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+    <Box sx={{ backgroundColor: '#788496', width: '100vw', marginTop: 15, padding: '30px 0', textAlign: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
+  <Typography variant='h4' sx={{ color: 'white' }}>Enjoy a 3D Model of The "Double" Room</Typography>
+  <Box sx={{ width: '100vw', maxWidth: '100vw', height: 900, display: 'flex', alignItems: 'center', justifyContent: 'center', marginTop: 2 }}>
+    <Spline scene='https://prod.spline.design/aJK3vLcIjRFcByVZ/scene.splinecode' />
+  </Box>
+  <Typography sx={{ textAlign: 'center', color: 'white', marginTop: 2 }}>PS: Spin Me Around...</Typography>
+</Box>
+</Box>
+
     <Box sx={{ textAlign: 'center' }}>
-      <Typography variant='h4' sx={{ marginTop: 160 }}>What Are You Waiting For?</Typography>
+      <Typography variant='h4' sx={{ marginTop: 15 }}>What Are You Waiting For?</Typography>
       <Button href='/reservation' variant='outlined' sx={{ marginTop: 10, 
       '&:hover': { transform: 'scale(1.05)',
           boxShadow: '0px 8px 16px rgba(0, 0, 0, 0.1)',

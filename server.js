@@ -4,7 +4,6 @@ const express = require('express');
 const cors = require('cors');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
-const jwt = require('jsonwebtoken');
 
 const app = express();
 app.use(cors());
@@ -12,26 +11,6 @@ app.use(bodyParser.json());
 
 mongoose.connect(process.env.MONGO_URI, {});
 const db = mongoose.connection;
-
-const authenticateToken = (req, res, next) => {
-    const authHeader = req.headers['authorization'];
-    const token = authHeader && authHeader.split(' ')[1];
-
-    if (token == null) {
-        return res.sendStatus(401);
-    }
-
-    jwt.verify(token, process.env.ACCESS_TOKEN_SECRET, (err, user) => {
-        if (err) {
-            return res.sendStatus(403);
-        }
-        req.user = user;
-
-        const roles = user.roles;
-        console.log(roles);
-        next();
-    });
-};
 
 const reservationSchema = new mongoose.Schema({
     userId: String,
