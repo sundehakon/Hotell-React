@@ -21,7 +21,7 @@ const reservationSchema = new mongoose.Schema({
 
 const Reservation = mongoose.model('Reservation', reservationSchema);
 
-app.post('/api/Orders', authenticateToken, async (req, res) => {
+app.post('/api/Orders', async (req, res) => {
     const { checkInDate, checkOutDate, roomType, userId } = req.body;
 
     const reservation = new Reservation({
@@ -39,7 +39,7 @@ app.post('/api/Orders', authenticateToken, async (req, res) => {
     }
 });
 
-app.get('/api/Orders', authenticateToken, async (req, res) => {
+app.get('/api/Orders', async (req, res) => {
     try {
         const orders = await Reservation.find(); 
         res.status(200).json(orders);
@@ -49,7 +49,7 @@ app.get('/api/Orders', authenticateToken, async (req, res) => {
     }
 });
 
-app.delete('/api/Orders/:orderId', authenticateToken, async (req, res) => {
+app.delete('/api/Orders/:orderId', async (req, res) => {
     const { orderId } = req.params;
 
     try {
