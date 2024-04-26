@@ -4,7 +4,6 @@ const express = require('express');
 const cors = require('cors');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
-
 const app = express();
 app.use(cors());
 app.use(bodyParser.json());
@@ -72,9 +71,9 @@ db.on('error', (error) => {
 
 db.once('open', () => {
     console.log('Connected to MongoDB');
-})
+});
 
 const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => {
     console.log(`PORT: ${PORT}`);
-})
+});
