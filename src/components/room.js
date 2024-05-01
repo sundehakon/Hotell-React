@@ -37,6 +37,7 @@ const ReservationForm = () => {
         }
     };
 
+    if (isAuthenticated) {
     return (
         <Container maxWidth="xs" sx={{ textAlign: 'center' }}>
             <Paper sx={{ padding: 7 }}>
@@ -96,6 +97,15 @@ const ReservationForm = () => {
             </Paper>
         </Container>
     );
+} else {
+    return (
+        <Container maxWidth="xs" sx={{ textAlign: 'center' }}>
+            <Typography variant="h4" gutterBottom>
+                Please log in to reserve a room
+            </Typography>
+        </Container>
+    );
+}
 };
 
 export default ReservationForm;
