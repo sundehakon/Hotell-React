@@ -99,11 +99,11 @@ const ReservationForm = () => {
     );
 } else {
     return (
-        <Container maxWidth="xs" sx={{ textAlign: 'center' }}>
-            <Typography variant="h4" gutterBottom>
-                Please log in to reserve a room
+        <Box sx={{ textAlign: 'center', marginTop: 20 }}>
+            <Typography variant='h5'>
+                Please Log In to View Your Profile
             </Typography>
-        </Container>
+        </Box>
     );
 }
 };
