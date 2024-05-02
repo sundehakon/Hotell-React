@@ -1,4 +1,4 @@
-import { Grid, Typography, Box, ListItem, List } from "@mui/material";
+import { Grid, Typography, Box, ListItem, List, Card } from "@mui/material";
 import { useEffect, useState } from "react";
 import axios from 'axios';
 
@@ -29,11 +29,11 @@ const AdminPage = () => {
                 gap={8}
                 direction="row"
                 alignItems="center"
-                justify="center"
-                marginTop={20}
-                marginLeft={45}
+                justifyContent="center"
+                marginTop={15}
             >
                 {orders.map((order, index) => (
+                    <Card sx={{ padding: 4 }}>
                     <List key={index}>
                         <ListItem>
                             <Box sx={{ fontWeight: 'bolder' }}>Check-in Date:</Box>&nbsp;{order.checkInDate}
@@ -48,6 +48,7 @@ const AdminPage = () => {
                             <Box sx={{ fontWeight: 'bolder' }}>Auth0 User ID:</Box>&nbsp;{order.userId} 
                         </ListItem>
                     </List>
+                    </Card>
                 ))}
             </Grid>
         </div>
