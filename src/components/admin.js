@@ -1,9 +1,11 @@
 import { Grid, Typography, Box, ListItem, List, Card } from "@mui/material";
 import { useEffect, useState } from "react";
 import axios from 'axios';
+import { useAuth0 } from "@auth0/auth0-react";
 
 const AdminPage = () => {
     const [orders, setOrders] = useState([]);
+    const { user } = useAuth0();
 
     useEffect(() => {
         const fetchOrders = async () => {
@@ -18,6 +20,7 @@ const AdminPage = () => {
         fetchOrders();
     }, []); 
 
+if (user && user.email === 'admin@havblikk.com') {
     return (
         <div>
             <Typography variant='h4' sx={{ textAlign: 'center', marginTop: 5 }} gutterBottom>
@@ -53,6 +56,15 @@ const AdminPage = () => {
             </Grid>
         </div>
     );
+} else {
+    return (
+        <Box sx={{ textAlign: 'center', marginTop: 30 }}>
+            <Typography variant='h2' sx={{ marginTop: 3, color: 'red', fontWeight: 'bolder' }}>
+                You are not authorized to view this page!!!
+            </Typography>
+        </Box>
+    );
 }
+};
 
 export default AdminPage;
