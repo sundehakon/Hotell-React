@@ -4,7 +4,7 @@ import axios from "axios";
 import { useAuth0 } from "@auth0/auth0-react";
 
 const ReservationForm = () => {
-    const { user, isAuthenticated, loginWithRedirect } = useAuth0();
+    const { user, isAuthenticated } = useAuth0();
     const [formData, setFormData] = useState({
         userId: user?.sub,
         checkInDate: '',
@@ -20,10 +20,6 @@ const ReservationForm = () => {
     const handleSubmit = async (event) => {
         event.preventDefault();
         try {
-            // TODO: Order does not contain AuthId when logging into user after reservation
-            if (!isAuthenticated) {
-                await loginWithRedirect();
-            }
             const dataToSend = { ...formData, userId: user?.sub };
             await axios.post('http://localhost:8080/api/Orders', dataToSend);
             setFormData({
