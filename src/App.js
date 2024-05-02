@@ -4,6 +4,7 @@ import Home from './components/Home';
 import NotFound from './components/NotFound';
 import Profile from './components/Profile';
 import ReservationForm from './components/room';
+import AdminPage from './components/admin';
 import { ThemeProvider } from '@mui/material/styles';
 import theme from './theme';
 import Header from './components/header';
@@ -16,6 +17,7 @@ function App() {
       <Header />
         <Routes>
           <Route path='/test-environment' element={<div>Test Environment</div>} />
+          <Route path='/admin' element={<AdminPage />}/>
           <Route path='/' 
           element={
             <div>
