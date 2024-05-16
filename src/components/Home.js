@@ -58,9 +58,9 @@ const Home = () => {
         <img src='/hotel-photos/2020-travellers-choice.png' alt='Trip Advisor' style={{ width: 325, height: 250, display: 'block', marginLeft: 130, marginTop: -260 }} />
     </Box>
     <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-    <Box sx={{ backgroundColor: '#788496', width: '100vw', marginTop: 15, padding: '30px 0', textAlign: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
+    <Box sx={{ backgroundColor: '#788496', marginTop: 15, padding: '30px', textAlign: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
   <Typography variant='h4' sx={{ color: 'white' }}>Enjoy a 3D Model of The "Double" Room</Typography>
-  <Box sx={{ width: '100vw', maxWidth: '100vw', height: 900, display: 'flex', alignItems: 'center', justifyContent: 'center', marginTop: 2 }}>
+  <Box sx={{ width: '95.5vw', maxWidth: '100vw', height: 900, display: 'flex', alignItems: 'center', justifyContent: 'center', marginTop: 2 }}>
     <Spline scene='https://prod.spline.design/aJK3vLcIjRFcByVZ/scene.splinecode' />
   </Box>
   <Typography sx={{ textAlign: 'center', color: 'white', marginTop: 2 }}>PS: Spin Me Around...</Typography>
