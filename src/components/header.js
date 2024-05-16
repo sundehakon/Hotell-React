@@ -23,7 +23,7 @@ const Header = () => {
                             <img src={user.picture} alt='Profile' style={{ width: 32, height: 32, borderRadius: '50%', marginRight: 8 }} />
                         </a>
                     )}
-                    <Box sx={{ marginTop: 0.5 }}>
+                    <Box>
                         {user && (
                             <Typography variant='body1' sx={{ marginRight: 2 }}>
                                 {user.nickname}

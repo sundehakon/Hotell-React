@@ -72,7 +72,7 @@ const Profile = () => {
                 justify="center"
                 marginTop={10}
             >
-                <Card sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', padding: 6, borderRadius: 10, boxShadow: 3 }}>
+                <Card sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', padding: 6, borderRadius: 10, boxShadow: 3, textAlign: 'center' }}>
                     <Box>
                         {user.picture && <img src={user.picture} alt={user.name} style={{ borderRadius: '50%' }}/>}
                     </Box>
