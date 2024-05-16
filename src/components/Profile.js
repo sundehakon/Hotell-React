@@ -67,15 +67,14 @@ const Profile = () => {
                 container
                 spacing={0}
                 gap={8}
-                direction="row"
+                direction="column"
                 alignItems="center"
                 justify="center"
-                marginTop={20}
-                marginLeft={45}
+                marginTop={10}
             >
-                <Card sx={{ width: 500 }}>
-                    <Box sx={{ margin: 2 }}>
-                        {user.picture && <img src={user.picture} alt={user.name} />}
+                <Card sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', padding: 6, borderRadius: 10, boxShadow: 3 }}>
+                    <Box>
+                        {user.picture && <img src={user.picture} alt={user.name} style={{ borderRadius: '50%' }}/>}
                     </Box>
                     <Typography variant='h3'>Welcome, {user.nickname}</Typography>
                     <Typography>E-mail: {user.email}</Typography>
@@ -86,24 +85,22 @@ const Profile = () => {
                     )}
                 </Card>
                 {orders.length > 0 && (
-                <Card sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column', width: 350 }}>
+                <Card sx={{ display: 'flex', alignItems: 'center', flexDirection: 'column', width: 400, textAlign: 'center' }}>
                     <Typography variant='h4' sx={{ marginTop: 3 }}>Orders</Typography>
-                    <ul>
                         {orders.map((order, index) => (
-                            <List key={index}>
-                                <ListItem>
+                            <Box key={index}>
+                                <Typography sx={{ marginTop: 1 }}>
                                     <Box sx={{ fontWeight: 'bolder' }}>Check-in Date:</Box>&nbsp;{order.checkInDate}
-                                </ListItem>
-                                <ListItem>
+                                </Typography>
+                                <Typography sx={{ marginTop: 1 }}>
                                     <Box sx={{ fontWeight: 'bolder' }}>Check-out Date:</Box>&nbsp;{order.checkOutDate}
-                                </ListItem>
-                                <ListItem>
+                                </Typography>
+                                <Typography sx={{ marginTop: 1 }}>
                                     <Box sx={{ fontWeight: 'bolder' }}>Room Type:</Box>&nbsp;{order.roomType}
-                                </ListItem>
-                            </List>
+                                </Typography>
+                            </Box>
                         ))}
-                    </ul>
-                    <Button onClick={handleDelete} variant="contained" color="error" sx={{ marginBottom: 3 }}>
+                    <Button onClick={handleDelete} variant="contained" color="error" sx={{ marginBottom: 3, marginTop: 1 }}>
                         Cancel
                     </Button>
                 </Card>
